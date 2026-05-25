@@ -104,8 +104,7 @@
     .nav-seal-img {
       height: 46px;
       width: auto;
-      opacity: 0.82;
-      filter: brightness(0) invert(1) drop-shadow(0 0 4px rgba(255,227,201,0.15));
+      opacity: 0.9;
       transition: opacity 0.25s;
     }
     .nav-seal-img:hover { opacity: 1; }
@@ -737,7 +736,13 @@
         grid-template-columns: 1fr;
       }
       .kodawari-img-wrap {
-        min-height: 340px;
+        min-height: 0;
+        height: auto;
+      }
+      .kodawari-bg-img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
       }
       .kodawari-patent {
         width: 120px;
@@ -1312,7 +1317,7 @@
         <!-- Googleマップ -->
         <div class="info-map-wrap">
           <iframe
-            src="https://maps.google.com/maps?q=広島県広島市中区中町4-18+エスポアールビル&output=embed&hl=ja&z=16"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3292.43258829556!2d132.4594017!3d34.3903491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355aa3175ffd38b9%3A0xaa65f98d5127f2ba!2z44K144Ku44Kj6aOf5aCCIOW6g-WztuW6lw!5e0!3m2!1sja!2sjp!4v1779688541611!5m2!1sja!2sjp"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"

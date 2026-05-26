@@ -102,11 +102,13 @@
       margin-left: 4px;
     }
     .nav-seal-img {
+      display: inline-block;
       height: 46px;
       width: auto;
-      opacity: 0.82;
-      filter: brightness(0) invert(1) drop-shadow(0 0 4px rgba(255,227,201,0.15));
+      opacity: 0.9;
       transition: opacity 0.25s;
+      filter: none !important;
+      flex-shrink: 0;
     }
     .nav-seal-img:hover { opacity: 1; }
     .nav-toggle {
@@ -125,6 +127,22 @@
       border-radius: 2px;
       transition: all 0.3s;
     }
+    /* モバイル用予約ボタン（ハンバーガー横） */
+    .nav-reserve-btn {
+      display: none;
+      background: var(--red);
+      color: var(--white) !important;
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+    .nav-reserve-btn:hover { background: #a30a1e; }
 
     /* ===== COMMON SECTION ===== */
     .section { padding: 88px 24px; }
@@ -737,10 +755,31 @@
         grid-template-columns: 1fr;
       }
       .kodawari-img-wrap {
-        min-height: 340px;
+        min-height: 0;
+        height: auto;
+        overflow: hidden;
+      }
+      .kodawari-bg-img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: unset !important;
+        display: block;
       }
       .kodawari-patent {
-        width: 120px;
+        width: 80px;
+        top: 12px;
+        left: 12px;
+      }
+    }
+    @media (max-width: 600px) {
+      .kodawari-bg-img {
+        width: 100% !important;
+        height: auto !important;
+      }
+      .kodawari-patent {
+        width: 60px;
+        top: 8px;
+        left: 8px;
       }
     }
     @media (max-width: 600px) {
@@ -819,6 +858,7 @@
     @media (max-width: 980px) {
       .nav-links { display: none; }
       .nav-toggle { display: flex; }
+      .nav-reserve-btn { display: block; }
       .about-grid { grid-template-columns: 1fr; }
       .info-grid { grid-template-columns: 1fr; gap: 36px; }
       .menu-grid { grid-template-columns: repeat(2, 1fr); }
@@ -847,7 +887,7 @@
     <!-- 左：シールロゴ ＋ 店名テキスト -->
     <a href="#home" class="nav-logo">
       <!-- ▼ 円形シールロゴ（左端） -->
-      <img src="images/logo-seal.png" alt="사위식당シールロゴ"
+      <img src="images/hero-seal.png" alt="사위식당シールロゴ"
            class="nav-seal-img"
            onerror="this.style.display='none'">
       サウィ食堂 広島店
@@ -861,6 +901,7 @@
       <li><a href="#info">アクセス</a></li>
       <li><a href="#info" class="nav-cta">予約する</a></li>
     </ul>
+    <a href="#info" class="nav-reserve-btn">予約する</a>
     <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -1037,7 +1078,7 @@
         <img src="images/kodawari-bg.jpg" alt="サウィ食堂 こだわり"
              class="kodawari-bg-img"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="kodawari-bg-placeholder">📸 画像をここに配置<br><small>images/kodawari-bg.jpg</small></div>
+        <div class="kodawari-bg-placeholder" style="display:none;">📸 画像をここに配置<br><small>images/kodawari-bg.jpg</small></div>
         <img src="images/patent.jpg" alt="特許証"
              class="kodawari-patent"
              onerror="this.style.display='none'">
@@ -1312,7 +1353,7 @@
         <!-- Googleマップ -->
         <div class="info-map-wrap">
           <iframe
-            src="https://maps.google.com/maps?q=広島県広島市中区中町4-18+エスポアールビル&output=embed&hl=ja&z=16"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3292.43258829556!2d132.4594017!3d34.3903491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355aa3175ffd38b9%3A0xaa65f98d5127f2ba!2z44K144Ku44Kj6aOf5aCCIOW6g-WztuW6lw!5e0!3m2!1sja!2sjp!4v1779688541611!5m2!1sja!2sjp"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"

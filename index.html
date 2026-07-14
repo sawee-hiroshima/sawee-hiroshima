@@ -748,19 +748,22 @@
       min-height: 500px;
     }
     .kodawari-bg-img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
     .kodawari-bg-placeholder {
+      position: absolute;
+      inset: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       width: 100%;
       height: 100%;
-      min-height: 500px;
       background: #1a1a18;
       color: rgba(255,227,201,0.35);
       font-size: 14px;
@@ -825,13 +828,17 @@
         grid-template-columns: 1fr;
       }
       .kodawari-img-wrap {
-        min-height: 340px;
+        aspect-ratio: 16 / 10;
+        min-height: 0;
       }
       .kodawari-patent {
         width: 120px;
       }
     }
     @media (max-width: 600px) {
+      .kodawari-img-wrap {
+        aspect-ratio: 4 / 3;
+      }
       .kodawari-grid {
         grid-template-columns: 1fr;
       }
@@ -935,7 +942,7 @@
     <!-- 左：シールロゴ ＋ 店名テキスト -->
     <a href="#home" class="nav-logo">
       <!-- ▼ 円形シールロゴ（左端） -->
-      <img src="images/logo-seal.png" alt="사위식당シールロゴ"
+      <img src="images/hero-seal.png" alt="사위식당シールロゴ"
            class="nav-seal-img"
            onerror="this.style.display='none'">
       サウィ食堂 広島店

@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サウィ食堂 広島店 | 韓国No.1 ナッコプセ専門店</title>
+  <meta name="description" content="中国地方初上陸！韓国No.1ナッコプセ専門店「サウィ食堂」広島店。広島市中区中町にオープン。HOT PEPPERグルメ・食べログから予約受付中。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ====================================================
+       ▼▼▼ カラーテーマ（変更したい場合はここを修正） ▼▼▼
+    ==================================================== */
+    :root {
+      --dark:      #1e1e1c;   /* メインの背景色（ほぼ黒） */
+      --red:       #c30d23;   /* アクセントレッド */
+      --peach:     #ffe3c9;   /* アクセントピーチ（テキスト） */
+      --white:     #FEFEFE;
+      --hp-red:    #D0101B;   /* HOTPEPPER ボタン色 */
+      --hp-text:   #FEFEFE;   /* HOTPEPPER テキスト色 */
+      --tb-bg:     #FEFEFE;   /* 食べログ ボタン背景 */
+      --tb-icon:   #FFA800;   /* 食べログ アイコン色 */
+      --tb-text:   #060606;   /* 食べログ テキスト色 */
+      --font-sans: 'Noto Sans JP', sans-serif;
+      --font-serif:'Noto Serif JP', serif;
+    }
+
+    /* ====================================================
+       ▼▼▼ リンク先URL（変更必須！） ▼▼▼
+       --url-hotpepper : HOT PEPPERグルメの予約ページURL
+       --url-tabelog   : 食べログの予約ページURL
+       --url-instagram : Instagramページ
+    ==================================================== */
+    /* ※ URLはHTML内の各aタグのhref属性を直接変更してください */
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--dark);
+      color: var(--white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      height: 64px;
+      background: rgba(30, 30, 28, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 227, 201, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--peach);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(254, 254, 254, 0.75);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--peach); }
+    .nav-cta {
+      background: var(--red) !important;
+      color: var(--white) !important;
+      padding: 9px 22px;
+      border-radius: 24px;
+      font-weight: 700 !important;
+    }
+    .nav-cta:hover { background: #a30a1e !important; }
+    .nav-seal-item {
+      display: flex;
+      align-items: center;
+      margin-left: 4px;
+    }
+    .nav-seal-img {
+      height: 46px;
+      width: auto;
+      opacity: 0.82;
+      filter: brightness(0) invert(1) drop-shadow(0 0 4px rgba(255,227,201,0.15));
+      transition: opacity 0.25s;
+    }
+    .nav-seal-img:hover { opacity: 1; }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ===== COMMON SECTION ===== */
+    .section { padding: 88px 24px; }
+    .section--alt { background: rgba(255, 227, 201, 0.025); }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(22px, 3.5vw, 36px);
+      font-weight: 700;
+      color: var(--peach);
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+    .section-divider {
+      width: 40px; height: 3px;
+      background: var(--red);
+      margin: 16px 0 48px;
+      border-radius: 2px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 96px 24px 80px;
+      overflow: hidden;
+    }
+    /* ── ヒーロー背景
+       画像を使う場合: .hero-bg の background を削除し
+       <img src="images/hero.jpg"> を .hero-bg 内に追加してください ── */
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, #2e1010 0%, #1e1e1c 55%, #1a1208 100%);
+      z-index: 0;
+    }
+    .hero-bg img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 18% 55%, rgba(195,13,35,0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at 82% 20%, rgba(255,227,201,0.07) 0%, transparent 40%),
+        linear-gradient(to top, rgba(30,30,28,0.6) 0%, transparent 50%);
+      z-index: 1;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    /* ヒーロー：リード文 */
+    .hero-lead {
+      font-family: var(--font-serif);
+      font-size: clamp(13px, 2.2vw, 16px);
+      color: var(--peach);
+      letter-spacing: 0.06em;
+      line-height: 1.9;
+      text-align: center;
+      margin-bottom: 24px;
+      padding: 14px 24px;
+      border-top: 1px solid rgba(255,227,201,0.25);
+      border-bottom: 1px solid rgba(255,227,201,0.25);
+      background: rgba(30,30,28,0.45);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 4px;
+      max-width: 620px;
+    }
+    .hero-lead em {
+      font-style: normal;
+      color: #fff;
+      font-weight: 700;
+    }
+    .hero-tags {
+      display: flex; gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .hero-tag {
+      background: rgba(195,13,35,0.18);
+      border: 1px solid rgba(195,13,35,0.45);
+      color: var(--peach);
+      font-size: 12px; font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 24px;
+      letter-spacing: 0.1em;
+    }
+    /* ヒーロー：テキストロゴ画像 */
+    .hero-logo-img {
+      display: block;
+      max-width: min(520px, 80vw);
+      width: 100%;
+      height: auto;
+      margin: 0 auto 0;
+      filter: drop-shadow(0 2px 16px rgba(0,0,0,0.5));
+    }
+    /* ヒーロー：낙곱새オリジナルロゴ（2枚直下、小さめ） */
+    .hero-nakko-logo {
+      display: block;
+      width: clamp(100px, 18vw, 160px);
+      height: auto;
+      margin: 8px auto 24px;
+      opacity: 0.85;
+      filter: drop-shadow(0 0 8px rgba(255,227,201,0.2));
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 9vw, 80px);
+      font-weight: 700;
+      color: var(--peach);
+      line-height: 1.15;
+      letter-spacing: 0.04em;
+      margin-bottom: 14px;
+    }
+    .hero-instagram {
+      font-size: 14px;
+      color: rgba(255,227,201,0.5);
+      letter-spacing: 0.18em;
+      margin-bottom: 52px;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      width: 100%;
+    }
+
+    /* ===== 予約ボタン 共通幅 ===== */
+    .btn-hp, .btn-tb, .btn-tel {
+      width: 100%;
+      max-width: 320px;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+    .btn-hp {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--hp-red);
+      color: var(--hp-text);
+      text-decoration: none;
+      padding: 15px 28px;
+      border-radius: 8px;
+      font-size: 14px; font-weight: 700;
+      letter-spacing: 0.04em;
+      box-shadow: 0 4px 18px rgba(208,16,27,0.45);
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
+    }
+    .btn-hp:hover {
+      background: #b80e17;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(208,16,27,0.55);
+    }
+    .btn-tb {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--tb-bg);
+      color: var(--tb-text);
+      text-decoration: none;
+      padding: 15px 28px;
+      border-radius: 8px;
+      font-size: 14px; font-weight: 700;
+      letter-spacing: 0.04em;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
+    }
+    .btn-tb:hover {
+      background: #ebebeb;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.4);
+    }
+    /* 電話予約ボタン（ヒーロー） */
+    .btn-tel {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,227,201,0.12);
+      color: var(--peach);
+      text-decoration: none;
+      padding: 15px 28px;
+      border-radius: 8px;
+      font-size: 14px; font-weight: 700;
+      letter-spacing: 0.04em;
+      border: 1.5px solid rgba(255,227,201,0.45);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
+    }
+    .btn-tel:hover {
+      background: rgba(255,227,201,0.22);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+    }
+    .btn-icon-hp {
+      width: 28px; height: 28px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 900;
+      color: #fff; flex-shrink: 0;
+      letter-spacing: 0;
+    }
+    .btn-icon-tb {
+      width: 28px; height: 28px;
+      background: rgba(255,168,0,0.12);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      color: var(--tb-icon);
+      flex-shrink: 0;
+    }
+
+    /* ===== MEDIA ===== */
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 18px;
+    }
+    .media-card {
+      background: rgba(255,227,201,0.04);
+      border: 1px solid rgba(255,227,201,0.09);
+      border-radius: 12px;
+      padding: 28px 24px;
+      transition: border-color 0.3s, background 0.3s, transform 0.2s;
+    }
+    .media-card:hover {
+      border-color: rgba(195,13,35,0.35);
+      background: rgba(195,13,35,0.04);
+      transform: translateY(-2px);
+    }
+    .media-source {
+      font-size: 11px; font-weight: 700;
+      color: var(--red);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .media-title {
+      font-size: 15px; font-weight: 700;
+      color: var(--white);
+      line-height: 1.55;
+      margin-bottom: 10px;
+    }
+    .media-date {
+      font-size: 12px;
+      color: rgba(255,227,201,0.35);
+    }
+
+    /* ===== ABOUT ===== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .about-card {
+      background: rgba(255,227,201,0.03);
+      border: 1px solid rgba(255,227,201,0.09);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .about-card:hover { border-color: rgba(195,13,35,0.3); }
+    .about-card-top { height: 3px; background: linear-gradient(90deg, var(--red), var(--peach)); }
+    /* ── About画像
+       src を差し替えてください。例: src="images/nakko.jpg" ── */
+    .about-card-img {
+      width: 100%;
+      aspect-ratio: 16 / 8;
+      background: rgba(255,227,201,0.06);
+      overflow: hidden;
+    }
+    .about-card-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .about-card-img-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+      color: rgba(255,227,201,0.18);
+      letter-spacing: 0.1em;
+    }
+    .about-card-body { padding: 32px 36px 36px; }
+    .about-card-title {
+      font-family: var(--font-serif);
+      font-size: 21px; font-weight: 700;
+      color: var(--peach);
+      margin-bottom: 16px;
+    }
+    .about-card-text {
+      font-size: 14px;
+      line-height: 2;
+      color: rgba(255,227,201,0.65);
+    }
+
+    /* ===== HOW TO ENJOY（ナッコプセの楽しみ方） ===== */
+    .howto-wrap {
+      display: flex;
+      justify-content: center;
+    }
+    .howto-img-frame {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,227,201,0.09);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+    }
+    .howto-img-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .howto-img-placeholder {
+      width: 100%;
+      aspect-ratio: 600 / 857;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,227,201,0.06);
+      font-size: 13px;
+      color: rgba(255,227,201,0.18);
+      letter-spacing: 0.1em;
+    }
+    .howto-steps {
+      max-width: 640px;
+      margin: 48px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .howto-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      background: rgba(255,227,201,0.03);
+      border: 1px solid rgba(255,227,201,0.09);
+      border-radius: 14px;
+      padding: 22px 24px;
+    }
+    .howto-step-num {
+      flex: none;
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: var(--red);
+      color: var(--white);
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      letter-spacing: 0;
+    }
+    .howto-step-body { padding-top: 2px; }
+    .howto-step-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--peach);
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+    .howto-step-text {
+      font-size: 13.5px;
+      line-height: 1.9;
+      color: rgba(255,227,201,0.65);
+    }
+    .howto-more {
+      max-width: 640px;
+      margin: 22px auto 0;
+      background: rgba(195,13,35,0.1);
+      border: 1px solid rgba(195,13,35,0.35);
+      border-radius: 14px;
+      padding: 20px 24px;
+    }
+    .howto-more-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--peach);
+      margin-bottom: 8px;
+    }
+    .howto-more-text {
+      font-size: 13.5px;
+      line-height: 1.9;
+      color: rgba(255,227,201,0.75);
+    }
+
+    /* ===== MENU ===== */
+    .menu-instagram-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,227,201,0.55);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      margin-bottom: 40px;
+      transition: color 0.2s;
+    }
+    .menu-instagram-link:hover { color: var(--peach); }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .menu-card {
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255,227,201,0.03);
+      border: 1px solid rgba(255,227,201,0.08);
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .menu-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(195,13,35,0.25);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+    }
+    /* ── メニュー画像エリア
+       各 .menu-card-img の中にある <img> の src を変更してください
+       例: src="images/menu01.jpg"
+       画像ファイルはHTMLと同じフォルダ内の images/ フォルダに置くこと ── */
+    .menu-card-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: rgba(255,227,201,0.06);
+      position: relative;
+    }
+    .menu-card-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .menu-card:hover .menu-card-img img {
+      transform: scale(1.05);
+    }
+    /* 画像がない場合のフォールバック */
+    .menu-card-img .placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+      color: rgba(255,227,201,0.2);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+    }
+    .menu-card-img .placeholder span { font-size: 28px; }
+    .menu-cat-badge {
+      position: absolute;
+      top: 10px; left: 10px;
+      background: rgba(30,30,28,0.75);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(195,13,35,0.4);
+      color: var(--red);
+      font-size: 9px; font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .menu-card-body { padding: 14px 16px 18px; }
+    .menu-card-num {
+      font-size: 10px; font-weight: 700;
+      color: var(--red);
+      letter-spacing: 0.1em;
+      margin-bottom: 2px;
+    }
+    .menu-card-name {
+      font-size: 15px; font-weight: 700;
+      color: var(--peach);
+      margin-bottom: 3px;
+      letter-spacing: 0.03em;
+    }
+    .menu-card-korean {
+      font-size: 11px;
+      color: rgba(255,227,201,0.35);
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+    .menu-card-desc {
+      font-size: 12px;
+      color: rgba(255,227,201,0.5);
+      line-height: 1.75;
+    }
+
+    /* ===== INFO ===== */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .info-map-wrap {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,227,201,0.1);
+      aspect-ratio: 4 / 3;
+      background: rgba(255,227,201,0.04);
+    }
+    .info-map-wrap iframe {
+      width: 100%; height: 100%;
+      border: none; display: block;
+    }
+    .info-details { display: flex; flex-direction: column; gap: 22px; }
+    .info-item { display: flex; gap: 16px; align-items: flex-start; }
+    .info-icon {
+      width: 42px; height: 42px;
+      background: rgba(195,13,35,0.12);
+      border: 1px solid rgba(195,13,35,0.25);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .info-content { flex: 1; padding-top: 2px; }
+    .info-label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--red);
+      margin-bottom: 5px;
+    }
+    .info-value {
+      font-size: 14px;
+      color: rgba(255,227,201,0.8);
+      line-height: 1.75;
+    }
+    .info-value a {
+      color: var(--peach);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .info-value a:hover { opacity: 0.7; text-decoration: underline; }
+    .info-hours-note {
+      display: inline-block;
+      margin-top: 4px;
+      font-size: 12px;
+      color: rgba(255,227,201,0.4);
+    }
+    .info-reserve-btns {
+      display: flex; gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 2px;
+    }
+    .info-btn-hp {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--hp-red);
+      color: var(--hp-text);
+      text-decoration: none;
+      padding: 11px 18px;
+      border-radius: 8px;
+      font-size: 13px; font-weight: 700;
+      transition: background 0.2s;
+    }
+    .info-btn-hp:hover { background: #b80e17; }
+    .info-btn-tb {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--tb-bg);
+      color: var(--tb-text);
+      text-decoration: none;
+      padding: 11px 18px;
+      border-radius: 8px;
+      font-size: 13px; font-weight: 700;
+      transition: background 0.2s;
+    }
+    .info-btn-tb:hover { background: #e8e8e8; }
+    /* 電話予約ボタン（インフォ） */
+    .info-btn-tel {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,227,201,0.08);
+      color: var(--peach);
+      text-decoration: none;
+      padding: 11px 18px;
+      border-radius: 8px;
+      font-size: 13px; font-weight: 700;
+      border: 1.5px solid rgba(255,227,201,0.35);
+      transition: background 0.2s;
+    }
+    .info-btn-tel:hover { background: rgba(255,227,201,0.18); }
+    .info-icon-hp {
+      width: 22px; height: 22px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 900; color: #fff; flex-shrink: 0;
+    }
+    .info-icon-tb {
+      width: 22px; height: 22px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; color: var(--tb-icon); flex-shrink: 0;
+    }
+
+    /* ===== KODAWARI ===== */
+    .kodawari-section {
+      background: #0d0d0b;
+      overflow: hidden;
+    }
+    .kodawari-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 600px;
+    }
+    /* 左：画像エリア */
+    .kodawari-img-wrap {
+      position: relative;
+      overflow: hidden;
+      min-height: 500px;
+    }
+    .kodawari-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .kodawari-bg-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      background: #1a1a18;
+      color: rgba(255,227,201,0.35);
+      font-size: 14px;
+      text-align: center;
+      gap: 8px;
+    }
+    .kodawari-patent {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      width: 160px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 4px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+      z-index: 2;
+    }
+    /* 右：テキストエリア */
+    .kodawari-content {
+      padding: clamp(40px, 6vw, 80px) clamp(32px, 5vw, 64px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #111110;
+    }
+    .kodawari-title {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3.5vw, 42px);
+      color: var(--white);
+      margin-bottom: 40px;
+    }
+    .kodawari-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .kodawari-item {
+      padding: 28px 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .kodawari-item:nth-child(odd) { border-right: none; }
+    .kodawari-item:nth-child(1),
+    .kodawari-item:nth-child(2) { border-bottom: none; }
+    .kodawari-item-title {
+      font-family: var(--font-serif);
+      font-size: clamp(15px, 1.6vw, 18px);
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .kodawari-divider {
+      width: 32px;
+      height: 1px;
+      background: var(--red);
+      margin-bottom: 14px;
+    }
+    .kodawari-item-text {
+      font-size: clamp(12px, 1.2vw, 13px);
+      color: rgba(255,227,201,0.75);
+      line-height: 1.85;
+    }
+    @media (max-width: 980px) {
+      .kodawari-inner {
+        grid-template-columns: 1fr;
+      }
+      .kodawari-img-wrap {
+        min-height: 340px;
+      }
+      .kodawari-patent {
+        width: 120px;
+      }
+    }
+    @media (max-width: 600px) {
+      .kodawari-grid {
+        grid-template-columns: 1fr;
+      }
+      .kodawari-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08); }
+      .kodawari-item:nth-child(1),
+      .kodawari-item:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .kodawari-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: rgba(0,0,0,0.45);
+      border-top: 1px solid rgba(255,227,201,0.07);
+      padding: 44px 24px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 20px; font-weight: 700;
+      color: var(--peach);
+      margin-bottom: 6px;
+    }
+    .footer-logo-img {
+      display: block;
+      margin: 0 auto 16px;
+      height: 96px;
+      width: auto;
+      opacity: 0.88;
+      filter: drop-shadow(0 0 12px rgba(255,227,201,0.15));
+      transition: opacity 0.3s;
+    }
+    .footer-logo-img:hover {
+      opacity: 1;
+    }
+    .footer-sns {
+      margin: 14px 0;
+      font-size: 13px;
+      color: rgba(255,227,201,0.4);
+      letter-spacing: 0.15em;
+    }
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,227,201,0.2);
+      letter-spacing: 0.08em;
+    }
+
+    /* ===== MOBILE NAV ===== */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 64px; left: 0; right: 0;
+      background: rgba(30,30,28,0.98);
+      border-bottom: 1px solid rgba(255,227,201,0.08);
+      z-index: 199;
+      flex-direction: column;
+      padding: 16px 24px 24px;
+      gap: 2px;
+    }
+    .nav-mobile.is-open { display: flex; }
+    .nav-mobile a {
+      color: rgba(254,254,254,0.8);
+      text-decoration: none;
+      font-size: 15px; font-weight: 500;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,227,201,0.06);
+      display: block;
+      letter-spacing: 0.06em;
+    }
+    .nav-mobile a:last-child { border-bottom: none; }
+    .nav-mobile a:hover { color: var(--peach); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .about-grid { grid-template-columns: 1fr; }
+      .info-grid { grid-template-columns: 1fr; gap: 36px; }
+      .menu-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav { padding: 0 20px; }
+    }
+    @media (max-width: 600px) {
+      .section { padding: 64px 16px; }
+      .hero { padding: 96px 16px 72px; }
+      .menu-grid { gap: 12px; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .btn-hp, .btn-tb, .btn-tel { width: 100%; max-width: 320px; justify-content: center; }
+      .about-card-body { padding: 24px 22px 28px; }
+      .info-reserve-btns { flex-direction: column; }
+    }
+    @media (max-width: 380px) {
+      .menu-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =============================================
+       ナビゲーション
+  ============================================== -->
+  <nav class="nav">
+    <!-- 左：シールロゴ ＋ 店名テキスト -->
+    <a href="#home" class="nav-logo">
+      <!-- ▼ 円形シールロゴ（左端） -->
+      <img src="images/logo-seal.png" alt="사위식당シールロゴ"
+           class="nav-seal-img"
+           onerror="this.style.display='none'">
+      サウィ食堂 広島店
+    </a>
+
+    <!-- 右：メニューリンク -->
+    <ul class="nav-links">
+      <li><a href="#media">メディア</a></li>
+      <li><a href="#about">サウィ食堂とは</a></li>
+      <li><a href="#menu">メニュー</a></li>
+      <li><a href="#info">アクセス</a></li>
+      <li><a href="#info" class="nav-cta">予約する</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- モバイルナビ -->
+  <div class="nav-mobile" id="navMobile">
+    <a href="#media"  onclick="closeNav()">メディアでの紹介</a>
+    <a href="#about"  onclick="closeNav()">ナッコプセ・サウィ食堂とは</a>
+    <a href="#menu"   onclick="closeNav()">メニュー</a>
+    <a href="#info"   onclick="closeNav()">アクセス・インフォメーション</a>
+  </div>
+
+
+  <!-- =============================================
+       HERO セクション
+       ヒーロー画像を使う場合:
+       下の <div class="hero-bg"> 内に
+       <img src="images/hero.jpg" alt="サウィ食堂 広島店">
+       を追加してください
+  ============================================== -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <!-- ▼ 1枚目の大きなバナー画像（背景） -->
+      <img src="images/hero.jpg" alt="サウィ食堂 広島店"
+           onerror="this.style.display='none'">
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <p class="hero-lead">
+        〜<em>東京・新大久保の本店は連日行列、予約困難の人気店</em>が<br>
+        ついに、<em>広島・うらぶくろエリア</em>にオープン〜
+      </p>
+      <div class="hero-tags">
+        <span class="hero-tag">中国地方初上陸</span>
+        <span class="hero-tag">韓国No.1 ナッコプセ専門店</span>
+      </div>
+
+      <!-- ▼ 2枚目：テキストロゴ画像（hero-logo.jpg） -->
+      <img src="images/hero-logo.png" alt="サウィ食堂 広島店"
+           class="hero-logo-img"
+           onerror="this.style.display='none';document.querySelector('.hero-title-fallback').style.display='block'">
+      <!-- 画像がない場合のテキスト代替 -->
+      <div class="hero-title-fallback" style="display:none;">
+        <h1 class="hero-title">サウィ食堂<br>広島店</h1>
+        <p class="hero-instagram">@sawee_hiroshima</p>
+      </div>
+
+      <!-- ▼ 낙곱새 オリジナルロゴ（2枚の直下に小さく） -->
+      <img src="images/logo.png" alt="낙곱새ロゴ"
+           class="hero-nakko-logo"
+           onerror="this.style.display='none'">
+
+      <div class="hero-buttons">
+        <!-- ▼ HOT PEPPER URL を変更してください -->
+        <a href="https://www.hotpepper.jp/" target="_blank" rel="noopener" class="btn-hp">
+          <span class="btn-icon-hp">H</span>
+          HOT PEPPERグルメで予約する
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       メディアでの紹介
+       各カードの「メディア名」「記事タイトル」「掲載日」を変更してください
+       カードを増やしたい場合は <div class="media-card">...</div> をコピーして追加
+  ============================================== -->
+  <section class="section" id="media">
+    <div class="section-inner">
+      <p class="section-label">MEDIA</p>
+      <h2 class="section-title">メディアでの紹介</h2>
+      <div class="section-divider"></div>
+      <div class="media-grid">
+
+        <div class="media-card">
+          <p class="media-source">PR TIMES</p>
+          <p class="media-title"><a href="https://prtimes.jp/main/html/rd/p/000000021.000144523.html" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">【中国地方初上陸】ナッコプセ専門店「사위식당（サウィ食堂）」、広島県に出店決定！</a></p>
+          <p class="media-date">2026年4月10日</p>
+        </div>
+
+        <div class="media-card">
+          <p class="media-source">韓国情報サイト『ワンジョン』</p>
+          <p class="media-title"><a href="https://wanjeon.tv-aichi.co.jp/502-archive/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">広島に初上陸、サウィ食堂！！｜釜山発の絶品ナッコプセに没入体験編</a></p>
+          <p class="media-date">2026年4月10日</p>
+        </div>
+
+        <div class="media-card">
+          <p class="media-source">広島ニュース 食べタインジャー</p>
+          <p class="media-title"><a href="https://tabetainjya.com/archives/nakaku1/post_8285/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">サウィ食堂、広島に初上陸！韓国釜山発・旨辛鍋の店、本場の味そのままに</a></p>
+          <p class="media-date">2026年4月11日</p>
+        </div>
+
+        <div class="media-card">
+          <p class="media-source">おとなの週末Web</p>
+          <p class="media-title"><a href="https://otonano-shumatsu.com/articles/552619" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">サウィ食堂が広島に｜新大久保・大阪で人気、釜山発祥の旨辛鍋ナッコプセ専門店が初出店</a></p>
+          <p class="media-date">2026年5月5日</p>
+        </div>
+
+        <div class="media-card">
+          <p class="media-source">RCC「イマナマ！」</p>
+          <p class="media-title">RCC「イマナマ！」でサウィ食堂 広島店が紹介されました！</p>
+          <p class="media-date">2026年5月28日</p>
+        </div>
+
+        <div class="media-card">
+          <p class="media-source">TSSテレビ新広島「街ナカ!トレンどっち!?」</p>
+          <p class="media-title"><a href="https://www.tss-tv.co.jp/mama/machinakatrend/20260630.html" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">ひろしま満点ママ!! 街ナカ!トレンどっち!? #14でサウィ食堂 広島店が紹介されました</a></p>
+          <p class="media-date">2026年6月30日</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       ABOUT セクション
+       画像を使う場合: .about-card-img 内の
+       <img src="images/nakko.jpg"> のコメントを外してください
+  ============================================== -->
+  <section class="section section--alt" id="about">
+    <div class="section-inner">
+      <p class="section-label">ABOUT</p>
+      <h2 class="section-title">わたしたちについて</h2>
+      <div class="section-divider"></div>
+      <div class="about-grid">
+
+        <!-- ナッコプセとは -->
+        <div class="about-card">
+          <div class="about-card-top"></div>
+          <div class="about-card-img">
+            <img src="images/about-nakko.jpg" alt="ナッコプセ"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="about-card-img-placeholder" style="display:none">📸 画像をここに配置</div>
+          </div>
+          <div class="about-card-body">
+            <h3 class="about-card-title">ナッコプセとは</h3>
+            <p class="about-card-text">
+              ナッコプセとは、タコ（낙지）・牛のホルモン（곱창）・エビ（새우）の頭文字を組み合わせた韓国発祥の絶品鍋料理です。<br><br>
+              秘伝の辛味噌ダレで豪快に炒めたその味は、濃厚な旨味と心地よい辛さが絶妙にマッチ。韓国では行列のできる国民食として広く愛されています。
+            </p>
+          </div>
+        </div>
+
+        <!-- サウィ食堂とは -->
+        <div class="about-card">
+          <div class="about-card-top"></div>
+          <div class="about-card-img">
+            <img src="images/about-sawee.jpg" alt="サウィ食堂"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="about-card-img-placeholder" style="display:none">📸 画像をここに配置</div>
+          </div>
+          <div class="about-card-body">
+            <h3 class="about-card-title">サウィ食堂とは</h3>
+            <p class="about-card-text">
+              韓国で圧倒的人気を誇るナッコプセ専門店「サウィ食堂」が、ついに中国地方へ初上陸。<br><br>
+              本場ソウルの味をそのまま広島へ。厳選素材と代々受け継がれる秘伝のタレで、忘れられない一皿をご提供します。
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       ナッコプセの楽しみ方セクション
+       画像を差し替える場合: images/how-to-nakko.jpg を変更してください
+  ============================================== -->
+  <section class="section" id="howto">
+    <div class="section-inner">
+      <p class="section-label">HOW TO ENJOY</p>
+      <h2 class="section-title">ナッコプセの楽しみ方</h2>
+      <div class="section-divider"></div>
+
+      <div class="howto-wrap">
+        <div class="howto-img-frame">
+          <img src="images/how-to-nakko.jpg" alt="ナッコプセの楽しみ方"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="howto-img-placeholder" style="display:none">📸 画像をここに配置<br><small>images/how-to-nakko.jpg</small></div>
+        </div>
+      </div>
+
+      <!-- ▼ ステップ紹介（テキスト） -->
+      <div class="howto-steps">
+        <div class="howto-step">
+          <div class="howto-step-num">1</div>
+          <div class="howto-step-body">
+            <p class="howto-step-title">まずはそのままナッコプセ！</p>
+            <p class="howto-step-text">本場仕込みの旨辛海鮮鍋を、まずはひと口どうぞ！</p>
+          </div>
+        </div>
+        <div class="howto-step">
+          <div class="howto-step-num">2</div>
+          <div class="howto-step-body">
+            <p class="howto-step-title">エゴマの葉で巻いて食べる</p>
+            <p class="howto-step-text">ナッコプセをエゴマの葉に包んで旨味堪能。さっぱり爽やかな味変を楽しもう！<br>おすすめトッピング：大根なます・もやし・細切り大根キムチ</p>
+          </div>
+        </div>
+        <div class="howto-step">
+          <div class="howto-step-num">3</div>
+          <div class="howto-step-body">
+            <p class="howto-step-title">ご飯にON！でもう一杯</p>
+            <p class="howto-step-text">目玉焼きご飯に、旨みが詰まった具材と汁を混ぜて。本格ビビンバ風の味わいに大変身！</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ▼ さらにお楽しみ！ -->
+      <div class="howto-more">
+        <p class="howto-more-title">🌶️ さらにお楽しみ！</p>
+        <p class="howto-more-text">ビビンバ風を楽しんだ後は、〆チャーハンやラーメン・うどんなども是非お楽しみください。</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       こだわり（KODAWARI）セクション
+  ============================================== -->
+  <section class="kodawari-section" id="kodawari">
+    <div class="kodawari-inner">
+
+      <!-- 左：メイン画像 -->
+      <div class="kodawari-img-wrap">
+        <img src="images/kodawari-bg.jpg" alt="サウィ食堂 こだわり"
+             class="kodawari-bg-img"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="kodawari-bg-placeholder">📸 画像をここに配置<br><small>images/kodawari-bg.jpg</small></div>
+        <img src="images/patent.jpg" alt="特許証"
+             class="kodawari-patent"
+             onerror="this.style.display='none'">
+      </div>
+
+      <!-- 右：こだわりグリッド -->
+      <div class="kodawari-content">
+        <p class="section-label" style="color:var(--peach);margin-bottom:8px;">KODAWARI</p>
+        <h2 class="kodawari-title">こだわり</h2>
+
+        <div class="kodawari-grid">
+
+          <div class="kodawari-item">
+            <h3 class="kodawari-item-title">秘伝のタレ</h3>
+            <div class="kodawari-divider"></div>
+            <p class="kodawari-item-text">ベースとなるタレは、17種類の材料から作られ、72時間の低温熟成を経て使用されるサウィ食堂独自の味で、特許を取得しています。</p>
+          </div>
+
+          <div class="kodawari-item">
+            <h3 class="kodawari-item-title">ホルモン</h3>
+            <div class="kodawari-divider"></div>
+            <p class="kodawari-item-text">新鮮な牛の大腸のみを使用し、ローリエ・長ネギ・八角など8種類の材料で風味を引き立てました。</p>
+          </div>
+
+          <div class="kodawari-item">
+            <h3 class="kodawari-item-title">エビ</h3>
+            <div class="kodawari-divider"></div>
+            <p class="kodawari-item-text">食感を重視し、1ポンドに約71〜90匹のサイズのエビを厳選して使用しています。</p>
+          </div>
+
+          <div class="kodawari-item">
+            <h3 class="kodawari-item-title">タコ</h3>
+            <div class="kodawari-divider"></div>
+            <p class="kodawari-item-text">良質なタコのみを選別し、最も食感の良い6cm（茹で後4cm）に均等に切り分けて使用しています。</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       メニュー セクション
+       ▼ 各メニューカードの画像src を変更してください
+         例: <img src="images/menu01.jpg" alt="ナッコプセ">
+       ▼ 画像ファイルは images/ フォルダに保存してください
+       ▼ カードを追加/削除する場合は
+         <div class="menu-card">...</div> ブロックをコピー/削除
+  ============================================== -->
+  <section class="section" id="menu">
+    <div class="section-inner">
+      <p class="section-label">MENU</p>
+      <h2 class="section-title">メニュー</h2>
+      <div class="section-divider"></div>
+
+      <a href="https://www.instagram.com/sawee_hiroshima/" target="_blank" rel="noopener" class="menu-instagram-link">
+        📷 &nbsp;最新メニューは @sawee_hiroshima でもチェック
+      </a>
+
+      <div class="menu-grid">
+
+        <!-- ▼ #1 ナッコプセ -->
+        <div class="menu-card">
+          <div class="menu-card-img">
+            <img src="images/menu01.jpg" alt="ナッコプセ"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="placeholder" style="display:none"><span>🍲</span>menu01.jpg</div>
+            <span class="menu-cat-badge">MAIN MENU</span>
+          </div>
+          <div class="menu-card-body">
+            <p class="menu-card-num">#1</p>
+            <p class="menu-card-name">ナッコプセ</p>
+            <p class="menu-card-korean">낙곱새</p>
+            <p class="menu-card-desc">タコ・ホルモン・エビを秘伝の辛味噌ダレで豪快に炒めた、サウィの看板メニュー。</p>
+          </div>
+        </div>
+
+        <!-- ▼ #2 ポッサム -->
+        <div class="menu-card">
+          <div class="menu-card-img">
+            <img src="images/menu02.jpg" alt="ポッサム"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="placeholder" style="display:none"><span>🥩</span>menu02.jpg</div>
+            <span class="menu-cat-badge">MAIN MENU</span>
+          </div>
+          <div class="menu-card-body">
+            <p class="menu-card-num">#2</p>
+            <p class="menu-card-name">ポッサム</p>
+            <p class="menu-card-korean">포섬</p>
+            <p class="menu-card-desc">丁寧に蒸し上げた豚肉を野菜で包んで食べる、ヘルシーな韓国式蒸し豚。</p>
+          </div>
+        </div>
+
+        <!-- ▼ #3 ナッサムセ -->
+        <div class="menu-card">
+          <div class="menu-card-img">
+            <img src="images/menu03.jpg" alt="ナッサムセ"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="placeholder" style="display:none"><span>🍲</span>menu03.jpg</div>
+            <span class="menu-cat-badge">MAIN MENU</span>
+          </div>
+          <div class="menu-card-body">
+            <p class="menu-card-num">#3</p>
+            <p class="menu-card-name">ナッサムセ</p>
+            <p class="menu-card-korean">낙삼새</p>
+            <p class="menu-card-desc">ナッコプセにサムギョプサルをプラス。ボリューム満点の贅沢な一鍋。</p>
+          </div>
+        </div>
+
+        <!-- ▼ #4 海老ニラチヂミ -->
+        <div class="menu-card">
+          <div class="menu-card-img">
+            <img src="images/menu04.jpg" alt="海老ニラチヂミ"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="placeholder" style="display:none"><span>🥞</span>menu04.jpg</div>
+            <span class="menu-cat-badge">KOREAN PANCAKE</span>
+          </div>
+          <div class="menu-card-body">
+            <p class="menu-card-num">#4</p>
+            <p class="menu-card-name">海老ニラチヂミ</p>
+            <p class="menu-card-korean">새우 느릅나무</p>
+            <p class="menu-card-desc">プリプリ海老とシャキシャキニラのサクサク食感が絶品のチヂミ。</p>
+          </div>
+        </div>
+
+        <!-- ▼ #5 ナッウセ -->
+        <div class="menu-card">
+          <div class="menu-card-img">
+            <img src="images/menu05.jpg" alt="ナッウセ"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="placeholder" style="display:none"><span>🍲</span>menu05.jpg</div>
+            <span class="menu-cat-badge">MAIN MENU</span>
+          </div>
+          <div class="menu-card-body">
+            <p class="menu-card-num">#5</p>
+            <p class="menu-card-name">ナッウセ</p>
+            <p class="menu-card-korean">나우세</p>
+            <p class="menu-card-desc">タコ・牛腸・春雨が絡み合う旨辛鍋。エビなしのシンプルな旨さ。</p>
+          </div>
+        </div>
+
+        <!-- ▼ #6 豚クッパ -->
+        <div class="menu-card">
+          <div class="menu-card-img">
+            <img src="images/menu06.jpg" alt="豚クッパ"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="placeholder" style="display:none"><span>🍜</span>menu06.jpg</div>
+            <span class="menu-cat-badge">NOODLE &amp; SOUP</span>
+          </div>
+          <div class="menu-card-body">
+            <p class="menu-card-num">#6</p>
+            <p class="menu-card-name">豚クッパ</p>
+            <p class="menu-card-korean">돼지고기 국밥</p>
+            <p class="menu-card-desc">豚骨の旨味を煮出した白濁スープにご飯を入れた、韓国式スープご飯。</p>
+          </div>
+        </div>
+
+        <!-- ▼ #7 石焼タコ炒め -->
+        <div class="menu-card">
+          <div class="menu-card-img">
+            <img src="images/menu07.jpg" alt="石焼タコ炒め"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="placeholder" style="display:none"><span>🐙</span>menu07.jpg</div>
+            <span class="menu-cat-badge">SIDE DISH</span>
+          </div>
+          <div class="menu-card-body">
+            <p class="menu-card-num">#7</p>
+            <p class="menu-card-name">石焼タコ炒め</p>
+            <p class="menu-card-korean">돌판 낙지볶음</p>
+            <p class="menu-card-desc">熱々の石鍋でジュージュー炒めるタコの旨辛炒め。仕上げのパクチーが香る。</p>
+          </div>
+        </div>
+
+        <!-- ▼ #8 あさりカルグクス -->
+        <div class="menu-card">
+          <div class="menu-card-img">
+            <img src="images/menu08.jpg" alt="あさりカルグクス"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="placeholder" style="display:none"><span>🍜</span>menu08.jpg</div>
+            <span class="menu-cat-badge">NOODLE &amp; SOUP</span>
+          </div>
+          <div class="menu-card-body">
+            <p class="menu-card-num">#8</p>
+            <p class="menu-card-name">あさりカルグクス</p>
+            <p class="menu-card-korean">바지락 칼국수</p>
+            <p class="menu-card-desc">あさりの旨味が染み渡る優しいスープと、もちもち手打ち麺の絶品麺料理。</p>
+          </div>
+        </div>
+
+        <!-- ▼ #9 チーズポテトチヂミ -->
+        <div class="menu-card">
+          <div class="menu-card-img">
+            <img src="images/menu09.jpg" alt="チーズポテトチヂミ"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="placeholder" style="display:none"><span>🥞</span>menu09.jpg</div>
+            <span class="menu-cat-badge">KOREAN PANCAKE</span>
+          </div>
+          <div class="menu-card-body">
+            <p class="menu-card-num">#9</p>
+            <p class="menu-card-name">チーズポテトチヂミ</p>
+            <p class="menu-card-korean">치즈 감자 전</p>
+            <p class="menu-card-desc">外はカリカリ、中はとろ〜りチーズのポテトチヂミ。お子様にも人気の一品。</p>
+          </div>
+        </div>
+
+        <!-- ▼ #10 ナッカルグクス -->
+        <div class="menu-card">
+          <div class="menu-card-img">
+            <img src="images/menu10.jpg" alt="ナッカルグクス"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="placeholder" style="display:none"><span>🍜</span>menu10.jpg</div>
+            <span class="menu-cat-badge">NOODLE &amp; SOUP</span>
+          </div>
+          <div class="menu-card-body">
+            <p class="menu-card-num">#10</p>
+            <p class="menu-card-name">ナッカルグクス</p>
+            <p class="menu-card-korean">낙카루국수</p>
+            <p class="menu-card-desc">タコの旨味たっぷりの赤いスープに麺と海苔のトッピング。やみつきの辛旨麺。</p>
+          </div>
+        </div>
+
+        <!-- ▼ #11 マッグクス -->
+        <div class="menu-card">
+          <div class="menu-card-img">
+            <img src="images/menu11.jpg" alt="マッグクス"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="placeholder" style="display:none"><span>🍜</span>menu11.jpg</div>
+            <span class="menu-cat-badge">NOODLE &amp; SOUP</span>
+          </div>
+          <div class="menu-card-body">
+            <p class="menu-card-num">#11</p>
+            <p class="menu-card-name">マッグクス</p>
+            <p class="menu-card-korean">막국수</p>
+            <p class="menu-card-desc">コチュジャンソースで和えたそば麺に千切りキャベツをのせた冷製麺料理。</p>
+          </div>
+        </div>
+
+        <!-- ▼ #12 〆炒飯 -->
+        <div class="menu-card">
+          <div class="menu-card-img">
+            <img src="images/menu12.jpg" alt="〆炒飯"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="placeholder" style="display:none"><span>🍳</span>menu12.jpg</div>
+            <span class="menu-cat-badge">SIDE DISH</span>
+          </div>
+          <div class="menu-card-body">
+            <p class="menu-card-num">#12</p>
+            <p class="menu-card-name">〆炒飯</p>
+            <p class="menu-card-korean">볶음밥</p>
+            <p class="menu-card-desc">鍋の残りダレで仕上げるパリパリの〆炒飯。最後の一口まで楽しめる名物。</p>
+          </div>
+        </div>
+
+      </div><!-- /menu-grid -->
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       インフォメーション
+       Googleマップ: src の URL 末尾にある住所テキストを変更すれば
+       別の場所に切り替えられます
+  ============================================== -->
+  <section class="section section--alt" id="info">
+    <div class="section-inner">
+      <p class="section-label">INFORMATION</p>
+      <h2 class="section-title">インフォメーション</h2>
+      <div class="section-divider"></div>
+
+      <div class="info-grid">
+
+        <!-- Googleマップ -->
+        <div class="info-map-wrap">
+          <iframe
+            src="https://maps.google.com/maps?q=広島県広島市中区中町4-18+エスポアールビル&output=embed&hl=ja&z=16"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="サウィ食堂 広島店 地図">
+          </iframe>
+        </div>
+
+        <!-- 店舗情報 -->
+        <div class="info-details">
+
+          <!-- 予約 -->
+          <div class="info-item">
+            <div class="info-icon">📅</div>
+            <div class="info-content">
+              <p class="info-label">RESERVATION</p>
+              <div class="info-reserve-btns">
+                <!-- ▼ URL を変更してください -->
+                <a href="https://www.hotpepper.jp/" target="_blank" rel="noopener" class="info-btn-hp">
+                  <span class="info-icon-hp">H</span>HOT PEPPER
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 住所 -->
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div class="info-content">
+              <p class="info-label">ADDRESS</p>
+              <p class="info-value">
+                〒730-0037<br>
+                広島県広島市中区中町４−１８<br>
+                エスポアールビル 1階
+              </p>
+            </div>
+          </div>
+
+          <!-- 営業時間 -->
+          <div class="info-item">
+            <div class="info-icon">🕐</div>
+            <div class="info-content">
+              <p class="info-label">HOURS</p>
+              <p class="info-value">
+                11:00 OPEN &nbsp;〜&nbsp; 22:00 CLOSE
+                <span class="info-hours-note">（Food L.O. 21:00 / Drink L.O. 21:30）</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- 電話 -->
+          <div class="info-item">
+            <div class="info-icon">📞</div>
+            <div class="info-content">
+              <p class="info-label">PHONE</p>
+              <p class="info-value">
+                <a href="tel:0822982110">082-298-2110</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- メール -->
+          <div class="info-item">
+            <div class="info-icon">✉️</div>
+            <div class="info-content">
+              <p class="info-label">EMAIL</p>
+              <p class="info-value">
+                <a href="mailto:sawee.hiroshima@gmail.com">sawee.hiroshima@gmail.com</a>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =============================================
+       フッター
+  ============================================== -->
+  <footer class="footer">
+    <img src="images/logo.png" alt="サウィ食堂ロゴ"
+         class="footer-logo-img"
+         onerror="this.style.display='none'">
+    <p class="footer-logo">サウィ食堂 広島店</p>
+    <p class="footer-sns">@sawee_hiroshima</p>
+    <p class="footer-copy">© 2026 Sawee Shokudo Hiroshima. All rights reserved.</p>
+  </footer>
+
+
+  <script>
+    // ── モバイルナビ
+    const toggle    = document.getElementById('navToggle');
+    const mobileNav = document.getElementById('navMobile');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    function closeNav() {
+      mobileNav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    window.addEventListener('scroll', () => {
+      if (mobileNav.classList.contains('is-open')) closeNav();
+    }, { passive: true });
+  </script>
+
+</body>
+</html>

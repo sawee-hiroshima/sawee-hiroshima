@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>サウィ食堂 正社員募集</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
+<style>
+:root{
+  --bg:#F7F4F1;
+  --surface:#FFFFFF;
+  --ink:#1E1E1C;
+  --muted:#5F5954;
+  --line:#E6DED7;
+  --red:#C30D23;
+  --red-deep:#A30A1E;
+  --red-soft:#FBE6E6;
+  --dark:#1E1E1C;
+  --peach:#FFE3C9;
+  --line-green:#06C755;
+  --note-bg:#FFF4C2;
+  --note-ink:#5A4700;
+  --font:"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#141412;--surface:#1F1F1C;--ink:#F3EFEB;--muted:#B5ADA6;--line:#34332F;
+    --red:#F04A5C;--red-deep:#FF8593;--red-soft:#3A1A1E;
+    --note-bg:#3D3510;--note-ink:#F5E08A;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#141412;--surface:#1F1F1C;--ink:#F3EFEB;--muted:#B5ADA6;--line:#34332F;
+  --red:#F04A5C;--red-deep:#FF8593;--red-soft:#3A1A1E;
+  --note-bg:#3D3510;--note-ink:#F5E08A;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.85;margin:0;padding-bottom:92px;-webkit-font-smoothing:antialiased}
+h1,h2,h3{text-wrap:balance;margin:0;font-weight:900;letter-spacing:.02em}
+p{margin:0}
+img,video{max-width:100%;display:block}
+.gutter{padding-inline:16px}
+.wrap{max-width:680px;margin-inline:auto}
+.stack{display:flex;flex-direction:column;gap:64px;padding-block:48px 40px}
+
+/* 社内確認バナー */
+.review{background:var(--note-bg);color:var(--note-ink);border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.7;margin-block:16px 0}
+.review strong{display:block;font-size:15px;margin-bottom:4px}
+.review ul{margin:6px 0 0;padding-left:1.2em}
+.chk{display:inline-block;background:var(--note-bg);color:var(--note-ink);font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 7px;border-radius:4px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+
+/* ヒーロー（サイトと同じ黒×赤×ピーチ） */
+.hero{background:var(--dark);color:#FEFEFE}
+.hero .wrap{display:grid;gap:24px;padding-block:28px 32px}
+.hero-top{display:flex;align-items:center;gap:12px}
+.hero-top .brandline{display:flex;align-items:center;gap:12px;flex:1;min-width:0}
+.to-store{flex:none;display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(255,227,201,.5);color:var(--peach);text-decoration:none;font-size:13px;font-weight:700;padding:8px 14px;border-radius:999px;white-space:nowrap}
+.to-store:hover{background:rgba(255,227,201,.12)}
+.to-store:focus-visible{outline:2px solid var(--peach);outline-offset:2px}
+.hero-top img{width:64px;height:auto}
+.hero-top span{font-size:13px;letter-spacing:.12em;color:var(--peach);font-weight:500}
+.hero-media{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/5;background:#2a2a27}
+.hero-media video,.hero-media img{width:100%;height:100%;object-fit:cover}
+.hero-media .cap{position:absolute;left:12px;bottom:12px;background:rgba(30,30,28,.78);color:var(--peach);font-size:12px;padding:4px 10px;border-radius:999px;letter-spacing:.06em}
+.hero h1{font-size:clamp(32px,8.6vw,48px);line-height:1.35}
+.hero h1 em{font-style:normal;color:#FF5A6A;background:linear-gradient(transparent 70%,rgba(195,13,35,.45) 70%)}
+.hero .lead{font-size:16px;color:rgba(254,254,254,.86)}
+.pay{border:1px solid rgba(255,227,201,.28);border-radius:12px;padding:16px 18px;display:grid;gap:2px}
+.pay .k{font-size:13px;color:var(--peach);letter-spacing:.08em}
+.pay .v{font-size:clamp(28px,8vw,38px);font-weight:900;font-variant-numeric:tabular-nums;line-height:1.3}
+.pay .s{font-size:14px;color:rgba(254,254,254,.8)}
+@media (min-width:760px){
+  .hero .wrap{max-width:1000px;grid-template-columns:1fr 360px;column-gap:40px;align-items:center}
+  .hero-top{grid-column:1 / -1}
+  .hero-text{grid-column:1;grid-row:2}
+  .hero-media{grid-column:2;grid-row:2}
+}
+.hero-text{display:grid;gap:20px}
+
+/* 3つの条件 */
+.points{display:grid;gap:12px}
+.point{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:grid;grid-template-columns:3.2em 1fr;gap:2px 14px}
+.point .tag{grid-row:span 2;font-weight:900;color:var(--red);font-size:15px;line-height:1.7}
+.point h3{font-size:17px;font-weight:700;line-height:1.6}
+.point p{font-size:14px;color:var(--muted)}
+
+/* セクション */
+section{display:flex;flex-direction:column;gap:18px}
+.eyebrow{font-size:12px;letter-spacing:.16em;color:var(--red);font-weight:700}
+section h2{font-size:clamp(24px,6.6vw,32px);line-height:1.45}
+.body{display:flex;flex-direction:column;gap:12px}
+.photo{border-radius:12px;overflow:hidden;background:var(--line)}
+.photo img{width:100%;height:auto}
+.media{display:grid;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.media h3{font-size:15px;font-weight:700;padding:14px 16px 4px}
+.media ul{list-style:none;margin:0;padding:0 16px 8px}
+.media li{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:10px 0;border-top:1px solid var(--line)}
+.media li:first-child{border-top:0}
+.media .src{font-size:12px;color:var(--red);font-weight:700;grid-column:1 / -1}
+.media a,.media .t{font-size:14px;color:var(--ink);line-height:1.6}
+.media a{text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.media .d{font-size:12px;color:var(--muted);white-space:nowrap;align-self:end;font-variant-numeric:tabular-nums}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pair .photo img{aspect-ratio:4/5;object-fit:cover}
+figcaption{font-size:12px;color:var(--muted);margin-top:6px}
+figure{margin:0}
+
+/* 仕事内容リスト */
+ul.tasks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.tasks li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline}
+.tasks b{font-size:15px}
+.tasks span{font-size:14px;color:var(--muted)}
+.tasks li::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--red);transform:translateY(-2px)}
+.tasks li > div{display:flex;flex-direction:column}
+
+/* シフト例 */
+.shifts{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.shift{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 10px;text-align:center}
+.shift .name{font-size:13px;color:var(--muted);font-weight:500}
+.shift .time{font-weight:900;font-size:clamp(16px,4.6vw,20px);font-variant-numeric:tabular-nums;line-height:1.4;margin-top:2px}
+.shift .rest{font-size:13px;color:var(--muted)}
+.note{font-size:13px;color:var(--muted)}
+
+/* 募集要項 */
+dl.spec{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.spec div{display:grid;grid-template-columns:6.5em 1fr;gap:12px;padding:14px 16px;border-top:1px solid var(--line)}
+.spec div:first-child{border-top:0}
+.spec dt{font-weight:700;font-size:14px;color:var(--muted)}
+.spec dd{margin:0;font-size:15px}
+.spec dd small{display:block;color:var(--muted);font-size:13px;line-height:1.65;margin-top:2px}
+@media (max-width:420px){.spec div{grid-template-columns:1fr;gap:2px}}
+
+/* 応募の流れ */
+ol.flow{list-style:none;margin:0;padding:0}
+.flow li{display:grid;grid-template-columns:36px 1fr;gap:14px;position:relative;padding-bottom:20px}
+.flow li:last-child{padding-bottom:0}
+.flow li::before{content:"";position:absolute;left:17px;top:36px;bottom:0;width:2px;background:var(--line)}
+.flow li:last-child::before{display:none}
+.flow .n{width:36px;height:36px;border-radius:50%;background:var(--red-soft);color:var(--red-deep);font-weight:900;display:grid;place-items:center;font-variant-numeric:tabular-nums}
+.flow h3{font-size:16px;font-weight:700;line-height:36px}
+.flow p{font-size:14px;color:var(--muted)}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column;gap:10px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.faq summary{font-weight:700;cursor:pointer;list-style:none;display:flex;gap:10px}
+.faq summary::before{content:"Q";color:var(--red);font-weight:900}
+.faq summary::-webkit-details-marker{display:none}
+.faq details p{margin-top:8px;font-size:14px;color:var(--muted);padding-left:1.5em}
+
+/* 応募ボタン */
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--line-green);color:#fff;text-decoration:none;font-weight:700;font-size:18px;border-radius:999px;padding:16px 20px;border:0;cursor:pointer;font-family:var(--font)}
+.cta:focus-visible{outline:3px solid var(--peach);outline-offset:3px}
+.cta svg{width:26px;height:26px;flex:none}
+.cta-note{font-size:13px;text-align:center}
+.hero .cta-note{color:rgba(254,254,254,.72)}
+.apply{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px 20px}
+.apply .cta-note{color:var(--muted)}
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid var(--line);z-index:10}
+.sticky .cta{max-width:680px;margin-inline:auto;font-size:17px;padding:13px 20px}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--ink);color:var(--bg);font-size:14px;padding:10px 16px;border-radius:8px;z-index:20;max-width:calc(100% - 32px)}
+footer{font-size:12px;color:var(--muted);text-align:center;line-height:1.8;padding-block:8px 24px}
+@media (prefers-reduced-motion:reduce){.hero-media video{display:none}.hero-media .poster{display:block!important}}
+</style>
+<!-- ▼ Metaピクセル（ピクセルIDを入れて、コメントを外す）
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','ここにピクセルID');fbq('track','PageView');</script>
+-->
+<!-- ▼ Googleタグ（GA4の測定ID / Google広告のIDを入れて、コメントを外す）
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');gtag('config','AW-XXXXXXXXX');</script>
+-->
+</head>
+<body>
+
+
+
+<header class="hero">
+  <div class="wrap gutter">
+    <div class="hero-top">
+      <div class="brandline">
+        <img src="images/logo.png" alt="サウィ食堂 ナッコプセ" width="64" height="54">
+        <span>サウィ食堂 広島店｜正社員募集</span>
+      </div>
+      <a class="to-store" href="../">店舗について <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="hero-media">
+      <video autoplay muted loop playsinline preload="metadata" poster="images/hero-poster.jpg" aria-label="客席でナッコプセの仕上げ方を教わるスタッフ">
+        <source src="images/hero.mp4" type="video/mp4">
+      </video>
+      <img class="poster" src="images/hero-poster.jpg" alt="" hidden style="display:none">
+      <span class="cap">調理の仕方も、先輩がしっかりレクチャーします</span>
+    </div>
+    <div class="hero-text">
+      <h1>飲食の経験を、<br><em>前職給与以上</em>で<br>迎えます。</h1>
+      <p class="lead">SNSやテレビで話題のナッコプセ専門店「サウィ食堂」が、広島・袋町でいっしょに働く正社員を募集しています。これまでのやり方と経験を、そのまま活かしてください。</p>
+      <div class="pay">
+        <div class="k">月給</div>
+        <div class="v">270,000円〜<br>500,000円</div>
+        <div class="s">前職の給与を考慮して決定します。残業代は1分単位で全額支給。</div>
+      </div>
+      <a class="cta" href="https://lin.ee/Yi1xHom" target="_blank" rel="noopener" data-apply>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5 1.1-.5 5.9-3.5 8-6C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8Z"/></svg>
+        LINEで応募する
+      </a>
+      <p class="cta-note">履歴書は不要です。LINEでお名前を送るだけで応募できます。</p>
+    </div>
+  </div>
+</header>
+
+<main class="gutter"><div class="wrap stack">
+
+  <div class="points">
+    <div class="point"><span class="tag">給与</span><h3>前職の給与を考慮して決定</h3><p>面談で前職の給与をお聞きし、それを踏まえて金額をご提示します。</p></div>
+    <div class="point"><span class="tag">休み</span><h3>年間休日100日以上・週休2日制</h3><p>シフト制で月8日以上休めます。有給休暇・慶弔休暇もあります。</p></div>
+    <div class="point"><span class="tag">場所</span><h3>広電「本通」「袋町」電停すぐ</h3><p>袋町公園のそば。電車・バス・自転車・バイクで通えます。</p></div>
+  </div>
+
+  <section>
+    <div class="eyebrow">お店について</div>
+    <h2>新大久保で行列の本店、<br>中国地方初出店のお店です</h2>
+    <figure class="photo"><img src="images/nakkopse.jpg" alt="タコ・ホルモン・エビが入ったナッコプセの鍋" width="900" height="900" loading="lazy"></figure>
+    <div class="body">
+      <p>ナッコプセは、タコ（ナクチ）・ホルモン（コプチャン）・エビ（セウ）を甘辛いスープで煮込む韓国・釜山の鍋料理です。サウィ食堂は東京・新大久保の本店が連日行列になる人気店で、2026年5月に広島店をオープンしました。</p>
+      <p>スタッフは学生からベテランまで約30名。韓国出身のスタッフも働いています。オープンしたばかりのお店なので、人間関係のしがらみがなく、フラットに協力し合える職場です。</p>
+    </div>
+    <div class="pair">
+      <figure><div class="photo"><img src="images/storefront.jpg" alt="中町エスポアールビル1階のサウィ食堂 広島店の入口" width="1000" height="750" loading="lazy"></div><figcaption>店舗入口（中町エスポアールビル1階）</figcaption></figure>
+      <figure><div class="photo"><img src="images/seats.jpg" alt="テーブル席が並ぶ店内" width="1000" height="750" loading="lazy"></div><figcaption>店内の客席</figcaption></figure>
+    </div>
+    <div class="media">
+      <h3>テレビ・メディアで紹介されています</h3>
+      <ul>
+        <li><span class="src">広島ホームテレビ「ピタニュー」</span><a href="https://www.home-tv.co.jp/pitanew/backnumber/guguseto_165/" target="_blank" rel="noopener">【ググッと。瀬戸内】残暑を乗り切る</a><span class="d">2026年9月4日放送</span></li>
+        <li><span class="src">RCC「イマナマ！」</span><a href="https://iraw.rcc.jp/play/videos/640608" target="_blank" rel="noopener">新店ラッシュ！中町エリアを知りたガール</a><span class="d">2026年8月17日放送</span></li>
+        <li><span class="src">TSSテレビ新広島「ひろしま満点ママ!!」</span><a href="https://www.tss-tv.co.jp/mama/machinakatrend/20260630.html" target="_blank" rel="noopener">街ナカ!トレンどっち!? #14</a><span class="d">2026年6月30日</span></li>
+        <li><span class="src">RCC「イマナマ！」</span><span class="t">サウィ食堂 広島店が紹介されました</span><span class="d">2026年5月28日</span></li>
+        <li><span class="src">おとなの週末Web</span><a href="https://otonano-shumatsu.com/articles/552619" target="_blank" rel="noopener">新大久保・大阪で人気、釜山発祥の旨辛鍋ナッコプセ専門店が初出店</a><span class="d">2026年5月5日</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">仕事内容</div>
+    <h2>キッチン・ホールの<br>お店まわり全般</h2>
+    <div class="pair">
+      <figure><div class="photo"><img src="images/kitchen-cook.jpg" alt="キッチンで調理するスタッフ2名" width="900" height="1125" loading="lazy"></div><figcaption>キッチン</figcaption></figure>
+      <figure><div class="photo"><img src="images/hall-serve.jpg" alt="客席で鍋を仕上げるスタッフ" width="900" height="1125" loading="lazy"></div><figcaption>ホール（客席で鍋を仕上げます）</figcaption></figure>
+    </div>
+    <ul class="tasks">
+      <li><div><b>接客・調理</b><span>経験に合わせて持ち場を決めるので、得意なことから始められます。</span></div></li>
+      <li><div><b>売上管理・仕入れ</b><span>お店に慣れてきたら、段階的にお任せします。</span></div></li>
+      <li><div><b>スタッフ育成</b><span>希望や適性に応じて、アルバイトスタッフの教育もお願いします。</span></div></li>
+      <li><div><b>店舗オリジナルメニューの開発</b><span>広島店だけのメニューづくりに関われるチャンスもあります。</span></div></li>
+    </ul>
+    <div class="body">
+      <p>フランチャイズなのでレシピとマニュアルが整っており、食材カットの機械も入れています。お店のやり方に慣れるまでの時間は短く、そのぶん、これまでの接客や調理の経験をすぐに発揮していただけます。</p>
+      <p>店長をめざしたい方には、店舗運営からマネジメントまで任せる道もあります。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">働き方</div>
+    <h2>9:00〜23:00の間で<br>シフトを組みます</h2>
+    <div class="shifts">
+      <div class="shift"><div class="name">早番</div><div class="time">9:00〜16:00</div><div class="rest">休憩1時間</div></div>
+      <div class="shift"><div class="name">遅番</div><div class="time">16:00〜23:00</div><div class="rest">休憩1時間</div></div>
+      <div class="shift"><div class="name">ロング</div><div class="time">9:00〜21:00</div><div class="rest">休憩2時間</div></div>
+      <div class="shift"><div class="name">通し</div><div class="time">9:00〜23:00</div><div class="rest">休憩2時間</div></div>
+    </div>
+    <p class="note">※シフトの一例です。</p>
+    <div class="body">
+      <p>残業代は1分単位で全額支給されるので、「しっかり稼ぎたい」「プライベートを大事にしたい」など、生活に合わせて働き方を選べます。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">募集要項</div>
+    <h2>働く条件</h2>
+    <dl class="spec">
+      <div><dt>職種</dt><dd>キッチン・ホールスタッフ（将来の店長・コアメンバー候補）</dd></div>
+      <div><dt>雇用形態</dt><dd>正社員</dd></div>
+      <div><dt>給与</dt><dd>月給270,000円〜500,000円<small>前職の給与を考慮して決定／試用期間3ヶ月（月給25万円〜、習熟度により1ヶ月から短縮あり）／残業代は1分単位で全額別途支給</small></dd></div>
+      <div><dt>昇給・賞与</dt><dd>昇給随時／賞与年1回（業績による）</dd></div>
+      <div><dt>勤務時間</dt><dd>9:00〜23:00の間でシフト制<small>シフト例：9:00〜16:00（休憩1時間）／16:00〜23:00（休憩1時間）／9:00〜21:00（休憩2時間）／9:00〜23:00（休憩2時間）。※シフトの一例です。22時以降の勤務は18歳以上の方のみ。</small></dd></div>
+      <div><dt>休日・休暇</dt><dd>年間休日100日以上／週休2日制（月8日以上）<small>有給休暇・慶弔休暇</small></dd></div>
+      <div><dt>応募資格</dt><dd>飲食店での勤務経験を活かしたい方<small>ブランクのある方も歓迎します</small></dd></div>
+      <div><dt>勤務地</dt><dd>サウィ食堂 広島店<small>広島県広島市中区中町4番18号 中町エスポアールビル1階／広電「本通」「袋町」電停より徒歩すぐ</small></dd></div>
+      <div><dt>待遇</dt><dd>社会保険完備（雇用・労災・健康・厚生年金）／交通費支給（社内規定あり）／残業手当・深夜手当／まかないあり（食事補助）／制服貸与／髪型・髪色自由（清潔感があればOK）</dd></div>
+      <div><dt>社宅</dt><dd>遠方から入社される方向けに社宅あり<small>自己負担3万円</small></dd></div>
+      <div><dt>運営会社</dt><dd>San Roots株式会社<small>代表取締役 小畠 諒／本社 広島県三原市城町1丁目12番5号／株式会社エムセックのグループ企業</small></dd></div>
+    </dl>
+  </section>
+
+  <section>
+    <div class="eyebrow">応募の流れ</div>
+    <h2>LINEだけで<br>面談まで進めます</h2>
+    <ol class="flow">
+      <li><span class="n">1</span><div><h3>LINEで友だち追加</h3><p>下のボタンからサウィ食堂 広島店のLINEを追加します。</p></div></li>
+      <li><span class="n">2</span><div><h3>お名前と希望日を送る</h3><p>自動で届くメッセージに沿って、お名前・ご経験・面談の希望日を送ってください。</p></div></li>
+      <li><span class="n">3</span><div><h3>面談（1〜2回）</h3><p>サウィ食堂 広島店で行います。前職の給与もこのときにお聞きします。</p></div></li>
+      <li><span class="n">4</span><div><h3>内定・入社日の相談</h3><p>給与をご提示し、入社日を相談して決めます。</p></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="eyebrow">よくある質問</div>
+    <h2>応募の前に</h2>
+    <div class="faq">
+      <details><summary>今の職場に在籍したまま応募できますか？</summary><p>できます。面談の日程や入社日は、今のお仕事の都合に合わせて相談できます。</p></details>
+      <details><summary>「前職給与以上」はどうやって決まりますか？</summary><p>面談で前職の給与をお聞きし、それを踏まえて金額をご提示します。</p></details>
+      <details><summary>まずは話だけ聞いてみてもいいですか？</summary><p>大丈夫です。LINEで「話を聞きたい」とだけ送っていただければ、お店のことをご説明します。</p></details>
+      <details><summary>韓国料理の経験がなくても大丈夫ですか？</summary><p>大丈夫です。レシピとマニュアルがあるので、飲食の経験があればすぐに慣れていただけます。</p></details>
+    </div>
+  </section>
+
+  <section class="apply" id="apply">
+    <div class="eyebrow">応募はこちら</div>
+    <h2>まずはLINEで<br>お気軽にご連絡ください</h2>
+    <figure class="photo"><img src="images/staff-duo.jpg" alt="店内で笑顔を見せるスタッフ2名" width="900" height="1125" loading="lazy" style="aspect-ratio:4/3;object-fit:cover;object-position:50% 25%"></figure>
+    <p>履歴書は面談のときで大丈夫です。友だち追加後、お名前を送っていただくと担当者からご連絡します。</p>
+    <a class="cta" href="https://lin.ee/Yi1xHom" target="_blank" rel="noopener" data-apply>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5 1.1-.5 5.9-3.5 8-6C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8Z"/></svg>
+      LINEで応募する
+    </a>
+    <p class="cta-note">サウィ食堂 広島店の公式LINEが開きます。</p>
+  </section>
+
+</div></main>
+
+<footer class="gutter">サウィ食堂 広島店／運営：San Roots株式会社</footer>
+
+<div class="sticky">
+  <a class="cta" href="https://lin.ee/Yi1xHom" target="_blank" rel="noopener" data-apply>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5 1.1-.5 5.9-3.5 8-6C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8Z"/></svg>
+    LINEで応募する
+  </a>
+</div>
+
+<script>
+// 公開時に広島店LINEの流入経路分析URLに差し替える
+var LINE_URL = "https://lin.ee/Yi1xHom";
+
+function trackApply(){
+  // 計測タグを入れたら有効になる
+  if (window.fbq) fbq('track','Lead');
+  if (window.gtag) gtag('event','generate_lead',{method:'line'});
+}
+function toast(msg){
+  var t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);
+  setTimeout(function(){t.remove()},2600);
+}
+document.querySelectorAll('[data-apply]').forEach(function(a){
+  if(LINE_URL){a.href=LINE_URL;a.target="_blank";a.rel="noopener";}
+  a.addEventListener('click',function(e){
+    trackApply();
+    if(!LINE_URL){
+      if(a.closest('#apply')){e.preventDefault();}
+      toast('確認用ページのため、LINEにはまだつながりません');
+    }
+  });
+});
+</script>
+
+</body>
+</html>

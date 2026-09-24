@@ -351,8 +351,22 @@ fbq('track', 'PageView');
 </div>
 
 <script>
-// 公開時に広島店LINEの流入経路分析URLに差し替える
+// 広告ごとのLINE友だち追加経路（utm_content で切り替え。該当なしは通常URL）
+var LINE_ROUTES = {
+  "wadai":     "https://lin.ee/84AjKqt", // Meta②話題性
+  "video_new": "https://lin.ee/zEMaZyC", // Meta新規動画
+  "short1":    "https://lin.ee/8mLgm62"  // YouTubeショート
+};
 var LINE_URL = "https://lin.ee/Yi1xHom";
+(function(){
+  var c = "";
+  try { c = new URLSearchParams(location.search).get("utm_content") || ""; } catch(e){}
+  try {
+    if (c) sessionStorage.setItem("sawi_utm_content", c);
+    else c = sessionStorage.getItem("sawi_utm_content") || "";
+  } catch(e){}
+  if (LINE_ROUTES[c]) LINE_URL = LINE_ROUTES[c];
+})();
 
 function trackApply(){
   // LINE応募ボタンのクリックを各広告・GA4に送る

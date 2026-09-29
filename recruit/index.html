@@ -183,6 +183,14 @@ fbq('init', '1630717695057547');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1630717695057547&ev=PageView&noscript=1"/></noscript>
+<!-- Microsoft Clarity：サウィ食堂 求人LP yq4ej27ol4 -->
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "yq4ej27ol4");
+</script>
 </head>
 <body>
 
@@ -367,11 +375,13 @@ var LINE_URL = "https://lin.ee/Yi1xHom";
     else c = sessionStorage.getItem("sawi_utm_content") || "";
   } catch(e){}
   if (LINE_ROUTES[c]) LINE_URL = LINE_ROUTES[c];
+  try { if (window.clarity && c) clarity("set", "utm_content", c); } catch(e){}
 })();
 
 function trackApply(){
   // LINE応募ボタンのクリックを各広告・GA4に送る
   if (window.fbq) fbq('track', 'Lead');
+  try { if (window.clarity) clarity('event', 'line_apply_click'); } catch(e){}
   if (window.gtag) {
     gtag('event', 'conversion', {'send_to': 'AW-18426767563/V-2tCKe3j4MdEMvRyNJE'});
     gtag('event', 'generate_lead', {method: 'line'});

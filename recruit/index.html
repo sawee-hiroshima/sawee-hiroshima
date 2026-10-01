@@ -126,6 +126,31 @@ ul.tasks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .shift .rest{font-size:13px;color:var(--muted)}
 .note{font-size:13px;color:var(--muted)}
 
+
+/* シフトのタップ（1日の流れ） */
+button.shift{font:inherit;color:inherit;cursor:pointer;width:100%;appearance:none;-webkit-appearance:none}
+button.shift:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+button.shift:active{background:var(--red-soft)}
+.shift .more{display:block;margin-top:6px;font-size:12px;color:var(--red);font-weight:700}
+.shift .more::after{content:" ▶"}
+dialog.shift-dialog{border:0;border-radius:16px;padding:0;width:min(560px,calc(100% - 24px));max-height:calc(100dvh - 32px);background:var(--surface);color:var(--ink);font-family:var(--font);overflow:auto}
+dialog.shift-dialog::backdrop{background:rgba(0,0,0,.55)}
+.sd-head{position:sticky;top:0;background:var(--surface);display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.sd-head .t{font-weight:900;font-size:18px;line-height:1.4}
+.sd-head .t small{display:block;font-size:13px;font-weight:500;color:var(--muted)}
+.sd-close{flex:none;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:14px;font-weight:700;border-radius:999px;padding:8px 14px;cursor:pointer;white-space:nowrap}
+.sd-close:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.sd-body{padding:16px;display:grid;gap:14px}
+.sd-lead{font-size:15px;font-weight:700}
+ol.sd-flow{list-style:none;margin:0;padding:0}
+.sd-flow li{display:grid;grid-template-columns:3.6em 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
+.sd-flow li:first-child{border-top:0}
+.sd-flow .tm{font-weight:900;color:var(--red);font-variant-numeric:tabular-nums}
+.sd-flow li.rest{background:var(--red-soft);border-radius:8px;padding-inline:8px;margin-block:2px}
+.sd-notes{font-size:13px;color:var(--muted);display:grid;gap:2px}
+.sd-apply{display:grid;gap:8px;padding-top:4px}
+.sd-apply p{font-size:14px;text-align:center}
+
 /* 募集要項 */
 dl.spec{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .spec div{display:grid;grid-template-columns:6.5em 1fr;gap:12px;padding:14px 16px;border-top:1px solid var(--line)}
@@ -134,6 +159,19 @@ dl.spec{margin:0;background:var(--surface);border:1px solid var(--line);border-r
 .spec dd{margin:0;font-size:15px}
 .spec dd small{display:block;color:var(--muted);font-size:13px;line-height:1.65;margin-top:2px}
 @media (max-width:420px){.spec div{grid-template-columns:1fr;gap:2px}}
+
+
+/* 運営グループ */
+.group{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 18px 16px;display:grid;gap:10px}
+.group .g-top{display:flex;align-items:center;gap:14px}
+.group .g-top img{height:36px;width:auto;flex:none}
+.group .g-label{font-size:12px;letter-spacing:.14em;color:var(--red);font-weight:700}
+.group .g-name{font-size:17px;font-weight:900;line-height:1.5}
+.group .g-lead{font-size:14px;color:var(--muted)}
+.group ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.group li{background:var(--bg);border-radius:8px;padding:10px 8px;text-align:center;font-size:13px;font-weight:700;line-height:1.5}
+.group li small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+@media (max-width:420px){.group ul{grid-template-columns:1fr}}
 
 /* 応募の流れ */
 ol.flow{list-style:none;margin:0;padding:0}
@@ -284,12 +322,12 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     <div class="eyebrow">働き方</div>
     <h2>9:00〜23:00の間で<br>シフトを組みます</h2>
     <div class="shifts">
-      <div class="shift"><div class="name">早番</div><div class="time">9:00〜16:00</div><div class="rest">休憩1時間</div></div>
-      <div class="shift"><div class="name">遅番</div><div class="time">16:00〜23:00</div><div class="rest">休憩1時間</div></div>
-      <div class="shift"><div class="name">ロング</div><div class="time">9:00〜21:00</div><div class="rest">休憩2時間</div></div>
-      <div class="shift"><div class="name">通し</div><div class="time">9:00〜23:00</div><div class="rest">休憩2時間</div></div>
+      <button type="button" class="shift" data-shift="early" aria-haspopup="dialog"><div class="name">早番</div><div class="time">9:00〜16:00</div><div class="rest">休憩1時間</div><span class="more">1日の流れを見る</span></button>
+      <button type="button" class="shift" data-shift="late" aria-haspopup="dialog"><div class="name">遅番</div><div class="time">16:00〜23:00</div><div class="rest">休憩1時間</div><span class="more">1日の流れを見る</span></button>
+      <button type="button" class="shift" data-shift="long" aria-haspopup="dialog"><div class="name">ロング</div><div class="time">9:00〜21:00</div><div class="rest">休憩2時間</div><span class="more">1日の流れを見る</span></button>
+      <button type="button" class="shift" data-shift="full" aria-haspopup="dialog"><div class="name">通し</div><div class="time">9:00〜23:00</div><div class="rest">休憩2時間</div><span class="more">1日の流れを見る</span></button>
     </div>
-    <p class="note">※シフトの一例です。</p>
+    <p class="note">※シフトの一例です。時間は前後する場合があります。<br>※シフトは固定ではなく、日によって早番・遅番・ロング・通しを組み合わせます。<br>※休憩は、お店の状況によって分割して取る場合があります。</p>
     <div class="body">
       <p>残業代は1分単位で全額支給されるので、「しっかり稼ぎたい」「プライベートを大事にしたい」など、生活に合わせて働き方を選べます。</p>
     </div>
@@ -311,6 +349,18 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       <div><dt>社宅</dt><dd>遠方から入社される方向けに社宅あり<small>自己負担3万円</small></dd></div>
       <div><dt>運営会社</dt><dd>San Roots株式会社<small>代表取締役 小畠 諒／本社 広島県三原市城町1丁目12番5号／株式会社エムセックのグループ企業</small></dd></div>
     </dl>
+    <div class="group">
+      <div class="g-top">
+        <img src="images/msec-logo.png" alt="株式会社エムセック" onerror="this.remove()">
+        <div><div class="g-label">運営グループ</div><div class="g-name">株式会社エムセックグループ</div></div>
+      </div>
+      <p class="g-lead">サウィ食堂 広島店は、広島県三原市に本社を置く株式会社エムセックのグループ企業が運営しています。</p>
+      <ul>
+        <li>システム事業<small>30年以上の実績</small></li>
+        <li>人材コミュニケーション事業</li>
+        <li>地域創成事業</li>
+      </ul>
+    </div>
   </section>
 
   <section>
@@ -358,6 +408,30 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
   </a>
 </div>
 
+
+<dialog class="shift-dialog" id="shiftDialog" aria-labelledby="sdTitle">
+  <div class="sd-head">
+    <div class="t" id="sdTitle"></div>
+    <button type="button" class="sd-close" id="sdClose" aria-label="閉じる">✕ 閉じる</button>
+  </div>
+  <div class="sd-body">
+    <p class="sd-lead" id="sdLead"></p>
+    <ol class="sd-flow" id="sdFlow"></ol>
+    <div class="sd-notes">
+      <span>※1日の流れの一例です。時間は前後する場合があります。</span>
+      <span>※休憩は、お店の状況によって分割して取る場合があります。</span>
+      <span>※22時以降の勤務は18歳以上の方のみです。</span>
+    </div>
+    <div class="sd-apply">
+      <p>気になる働き方があれば、LINEで希望を送ってください。</p>
+      <a class="cta" href="https://lin.ee/Yi1xHom" target="_blank" rel="noopener" data-apply data-from="shift_dialog">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5 1.1-.5 5.9-3.5 8-6C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8Z"/></svg>
+        LINEで応募する
+      </a>
+    </div>
+  </div>
+</dialog>
+
 <script>
 // 広告ごとのLINE友だち追加経路（utm_content で切り替え。該当なしは通常URL）
 var LINE_ROUTES = {
@@ -401,6 +475,42 @@ document.querySelectorAll('[data-apply]').forEach(function(a){
     }
   });
 });
+
+// シフトの「1日の流れ」ポップアップ
+var SHIFT_INFO = {
+  early:{n:"早番",t:"9:00〜16:00（休憩1時間）",lead:"夕方からの時間を自分のために使える日",
+    f:[["9:00","出勤・開店準備"],["11:00","ランチ営業（接客・調理）"],["13:00","休憩（まかないあり）",1],["14:00","午後の営業・片付け・引き継ぎ"],["16:00","退勤"]]},
+  late:{n:"遅番",t:"16:00〜23:00（休憩1時間）",lead:"夜の営業を担当する日",
+    f:[["16:00","出勤・夜営業の準備"],["17:00","ディナー営業（接客・鍋の仕上げ・調理）"],["20:00","休憩（まかないあり）",1],["21:00","ラストまでの営業"],["22:30","片付け・締め作業"],["23:00","退勤"]]},
+  long:{n:"ロング",t:"9:00〜21:00（休憩2時間）",lead:"昼も夜も、お店の流れを通して経験できる日",
+    f:[["9:00","出勤・開店準備"],["11:00","ランチ営業"],["14:00","休憩（まかないあり）",1],["16:00","夜営業の準備・ディナー営業"],["21:00","退勤"]]},
+  full:{n:"通し",t:"9:00〜23:00（休憩2時間）",lead:"お店を最初から最後まで見渡せる日",
+    f:[["9:00","出勤・開店準備"],["11:00","ランチ営業"],["14:00","休憩（まかないあり）",1],["16:00","夜営業の準備・ディナー営業"],["22:30","締め作業・売上管理"],["23:00","退勤"]]}
+};
+(function(){
+  var dlg=document.getElementById('shiftDialog'); if(!dlg||!dlg.showModal) return;
+  var cur="";
+  function ev(name){
+    try{ if(window.clarity) clarity('event', name); }catch(e){}
+    try{ if(window.gtag) gtag('event', name, {shift: cur}); }catch(e){}
+  }
+  document.querySelectorAll('button.shift').forEach(function(b){
+    b.addEventListener('click',function(){
+      cur=b.getAttribute('data-shift'); var d=SHIFT_INFO[cur];
+      document.getElementById('sdTitle').innerHTML=d.n+'<small>'+d.t+'</small>';
+      document.getElementById('sdLead').textContent=d.lead;
+      document.getElementById('sdFlow').innerHTML=d.f.map(function(r){return '<li'+(r[2]?' class="rest"':'')+'><span class="tm">'+r[0]+'</span><span>'+r[1]+'</span></li>';}).join('');
+      dlg.showModal(); dlg.scrollTop=0;
+      ev('shift_open');
+      try{ if(window.clarity) clarity('set','shift_opened',cur); }catch(e){}
+      try{ if(window.fbq) fbq('trackCustom','ShiftOpen',{shift:cur}); }catch(e){}
+    });
+  });
+  function close(){ if(dlg.open){ ev('shift_close'); dlg.close(); } }
+  document.getElementById('sdClose').addEventListener('click',close);
+  dlg.addEventListener('click',function(e){ if(e.target===dlg) close(); });
+  dlg.querySelector('[data-apply]').addEventListener('click',function(){ ev('shift_apply_click'); });
+})();
 </script>
 
 </body>

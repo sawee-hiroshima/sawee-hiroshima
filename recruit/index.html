@@ -322,12 +322,12 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     <div class="eyebrow">働き方</div>
     <h2>9:00〜23:00の間で<br>シフトを組みます</h2>
     <div class="shifts">
-      <button type="button" class="shift" data-shift="early" aria-haspopup="dialog"><div class="name">早番</div><div class="time">9:00〜16:00</div><div class="rest">休憩1時間</div><span class="more">1日の流れを見る</span></button>
-      <button type="button" class="shift" data-shift="late" aria-haspopup="dialog"><div class="name">遅番</div><div class="time">16:00〜23:00</div><div class="rest">休憩1時間</div><span class="more">1日の流れを見る</span></button>
-      <button type="button" class="shift" data-shift="long" aria-haspopup="dialog"><div class="name">ロング</div><div class="time">9:00〜21:00</div><div class="rest">休憩2時間</div><span class="more">1日の流れを見る</span></button>
-      <button type="button" class="shift" data-shift="full" aria-haspopup="dialog"><div class="name">通し</div><div class="time">9:00〜23:00</div><div class="rest">休憩2時間</div><span class="more">1日の流れを見る</span></button>
+      <button type="button" class="shift" data-shift="early" aria-haspopup="dialog"><div class="name">早番</div><div class="time">9:00〜16:00</div><div class="rest">休憩 目安1時間</div><span class="more">1日の流れを見る</span></button>
+      <button type="button" class="shift" data-shift="late" aria-haspopup="dialog"><div class="name">遅番</div><div class="time">16:00〜23:00</div><div class="rest">休憩 目安1時間</div><span class="more">1日の流れを見る</span></button>
+      <button type="button" class="shift" data-shift="long" aria-haspopup="dialog"><div class="name">ロング</div><div class="time">9:00〜21:00</div><div class="rest">休憩 目安2時間</div><span class="more">1日の流れを見る</span></button>
+      <button type="button" class="shift" data-shift="full" aria-haspopup="dialog"><div class="name">通し</div><div class="time">9:00〜23:00</div><div class="rest">休憩 目安2時間</div><span class="more">1日の流れを見る</span></button>
     </div>
-    <p class="note">※シフトの一例です。時間は前後する場合があります。<br>※シフトは固定ではなく、日によって早番・遅番・ロング・通しを組み合わせます。<br>※休憩は、お店の状況によって分割して取る場合があります。</p>
+    <p class="note">※シフトの一例です。時間は前後する場合があります。<br>※シフトは固定ではなく、日によって早番・遅番・ロング・通しを組み合わせます。<br>※休憩は、お店の状況によって分割または短縮となる場合があります。</p>
     <div class="body">
       <p>残業代は1分単位で全額支給されるので、「しっかり稼ぎたい」「プライベートを大事にしたい」など、生活に合わせて働き方を選べます。</p>
     </div>
@@ -341,7 +341,7 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       <div><dt>雇用形態</dt><dd>正社員</dd></div>
       <div><dt>給与</dt><dd>月給270,000円〜500,000円<small>前職の給与を考慮して決定／試用期間3ヶ月（月給25万円〜、習熟度により1ヶ月から短縮あり）／残業代は1分単位で全額別途支給</small></dd></div>
       <div><dt>昇給・賞与</dt><dd>昇給随時／賞与年1回（業績による）</dd></div>
-      <div><dt>勤務時間</dt><dd>9:00〜23:00の間でシフト制<small>シフト例：9:00〜16:00（休憩1時間）／16:00〜23:00（休憩1時間）／9:00〜21:00（休憩2時間）／9:00〜23:00（休憩2時間）。※シフトの一例です。22時以降の勤務は18歳以上の方のみ。</small></dd></div>
+      <div><dt>勤務時間</dt><dd>9:00〜23:00の間でシフト制<small>シフト例：9:00〜16:00（休憩 目安1時間）／16:00〜23:00（休憩 目安1時間）／9:00〜21:00（休憩 目安2時間）／9:00〜23:00（休憩 目安2時間）。※シフトの一例です。22時以降の勤務は18歳以上の方のみ。</small></dd></div>
       <div><dt>休日・休暇</dt><dd>年間休日100日以上／週休2日制（月8日以上）<small>有給休暇・慶弔休暇</small></dd></div>
       <div><dt>応募資格</dt><dd>飲食店での勤務経験を活かしたい方<small>ブランクのある方も歓迎します</small></dd></div>
       <div><dt>勤務地</dt><dd>サウィ食堂 広島店<small>広島県広島市中区中町4番18号 中町エスポアールビル1階／広電「本通」「袋町」電停より徒歩すぐ</small></dd></div>
@@ -419,7 +419,7 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     <ol class="sd-flow" id="sdFlow"></ol>
     <div class="sd-notes">
       <span>※1日の流れの一例です。時間は前後する場合があります。</span>
-      <span>※休憩は、お店の状況によって分割して取る場合があります。</span>
+      <span>※休憩は、お店の状況によって分割または短縮となる場合があります。</span>
       <span>※22時以降の勤務は18歳以上の方のみです。</span>
     </div>
     <div class="sd-apply">
@@ -478,14 +478,14 @@ document.querySelectorAll('[data-apply]').forEach(function(a){
 
 // シフトの「1日の流れ」ポップアップ
 var SHIFT_INFO = {
-  early:{n:"早番",t:"9:00〜16:00（休憩1時間）",lead:"夕方からの時間を自分のために使える日",
-    f:[["9:00","出勤・開店準備"],["11:00","ランチ営業（接客・調理）"],["13:00","休憩（まかないあり）",1],["14:00","午後の営業・片付け・引き継ぎ"],["16:00","退勤"]]},
-  late:{n:"遅番",t:"16:00〜23:00（休憩1時間）",lead:"夜の営業を担当する日",
-    f:[["16:00","出勤・夜営業の準備"],["17:00","ディナー営業（接客・鍋の仕上げ・調理）"],["20:00","休憩（まかないあり）",1],["21:00","ラストまでの営業"],["22:30","片付け・締め作業"],["23:00","退勤"]]},
-  long:{n:"ロング",t:"9:00〜21:00（休憩2時間）",lead:"昼も夜も、お店の流れを通して経験できる日",
-    f:[["9:00","出勤・開店準備"],["11:00","ランチ営業"],["14:00","休憩（まかないあり）",1],["16:00","夜営業の準備・ディナー営業"],["21:00","退勤"]]},
-  full:{n:"通し",t:"9:00〜23:00（休憩2時間）",lead:"お店を最初から最後まで見渡せる日",
-    f:[["9:00","出勤・開店準備"],["11:00","ランチ営業"],["14:00","休憩（まかないあり）",1],["16:00","夜営業の準備・ディナー営業"],["22:30","締め作業・売上管理"],["23:00","退勤"]]}
+  early:{n:"早番",t:"9:00〜16:00（休憩 目安1時間）",lead:"夕方からの時間を自分のために使える日",
+    f:[["9:00","出勤・開店準備"],["11:00","ランチ営業（接客・調理）"],["13:00","休憩（目安・まかないあり）",1],["14:00","午後の営業・片付け・引き継ぎ"],["16:00","退勤"]]},
+  late:{n:"遅番",t:"16:00〜23:00（休憩 目安1時間）",lead:"夜の営業を担当する日",
+    f:[["16:00","出勤・夜営業の準備"],["17:00","ディナー営業（接客・鍋の仕上げ・調理）"],["20:00","休憩（目安・まかないあり）",1],["21:00","ラストまでの営業"],["22:30","片付け・締め作業"],["23:00","退勤"]]},
+  long:{n:"ロング",t:"9:00〜21:00（休憩 目安2時間）",lead:"昼も夜も、お店の流れを通して経験できる日",
+    f:[["9:00","出勤・開店準備"],["11:00","ランチ営業"],["14:00","休憩（目安・まかないあり）",1],["16:00","夜営業の準備・ディナー営業"],["21:00","退勤"]]},
+  full:{n:"通し",t:"9:00〜23:00（休憩 目安2時間）",lead:"お店を最初から最後まで見渡せる日",
+    f:[["9:00","出勤・開店準備"],["11:00","ランチ営業"],["14:00","休憩（目安・まかないあり）",1],["16:00","夜営業の準備・ディナー営業"],["22:30","締め作業・売上管理"],["23:00","退勤"]]}
 };
 (function(){
   var dlg=document.getElementById('shiftDialog'); if(!dlg||!dlg.showModal) return;

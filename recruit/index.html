@@ -71,7 +71,7 @@ img,video{max-width:100%;display:block}
 .hero h1 em{font-style:normal;color:#FF5A6A;background:linear-gradient(transparent 70%,rgba(195,13,35,.45) 70%)}
 .hero .lead{font-size:14px;line-height:1.7;color:rgba(254,254,254,.86)}
 /* ファーストビューの3条件（給与・休み・家賃補助） */
-.fv-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.fv-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .fv-point{border:1px solid rgba(255,227,201,.28);border-radius:10px;padding:9px 8px;display:grid;gap:2px;align-content:start}
 .fv-point .k{font-size:12px;color:var(--peach);font-weight:700;letter-spacing:.04em}
 .fv-point .v{font-size:14px;font-weight:900;line-height:1.35}
@@ -143,6 +143,7 @@ ul.tasks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .shift .time{font-weight:900;font-size:clamp(16px,4.6vw,20px);font-variant-numeric:tabular-nums;line-height:1.4;margin-top:2px}
 .shift .rest{font-size:13px;color:var(--muted)}
 .note{font-size:13px;color:var(--muted)}
+.shift-cta{display:grid;gap:8px}
 
 
 /* シフトのタップ（1日の流れ） */
@@ -299,7 +300,8 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       <div class="fv-points">
         <div class="fv-point"><span class="k">給与</span><span class="v">月給27万〜50万円</span><span class="s">前職を考慮して決定</span></div>
         <div class="fv-point"><span class="k">休み</span><span class="v">年間休日100日以上</span><span class="s">週休2日制</span></div>
-        <div class="fv-point"><span class="k">住まい</span><span class="v">家賃補助あり</span><span class="s">遠方からの入社に</span></div>
+        <div class="fv-point"><span class="k">住まい</span><span class="v">家賃補助あり（自己負担3万円）</span><span class="s">遠方からの入社に</span></div>
+        <div class="fv-point"><span class="k">帰り</span><span class="v">遅番でも23:00退勤</span><span class="s">毎日遅くなるわけではありません</span></div>
       </div>
       <a class="cta" href="https://lin.ee/Yi1xHom" target="_blank" rel="noopener" data-apply>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5 1.1-.5 5.9-3.5 8-6C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8Z"/></svg>
@@ -384,9 +386,16 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       <button type="button" class="shift" data-shift="long" aria-haspopup="dialog"><div class="name">ロング</div><div class="time">9:00〜21:00</div><div class="rest">休憩 目安2時間</div><span class="more">1日の流れを見る</span></button>
       <button type="button" class="shift" data-shift="full" aria-haspopup="dialog"><div class="name">通し</div><div class="time">9:00〜23:00</div><div class="rest">休憩 目安2時間</div><span class="more">1日の流れを見る</span></button>
     </div>
-    <p class="note">※シフトの一例です。時間は前後する場合があります。<br>※シフトは固定ではなく、日によって早番・遅番・ロング・通しを組み合わせます。<br>※休憩は、お店の状況によって分割または短縮となる場合があります。</p>
-    <div class="body">
-      <p>残業代は1分単位で全額支給されるので、「しっかり稼ぎたい」「プライベートを大事にしたい」など、生活に合わせて働き方を選べます。</p>
+    <div class="point"><span class="tag">通し</span><h3>通し勤務が続かないように組みます</h3><p>通し勤務（9:00〜23:00）は連日にならないよう、シフトを調整しています。「早番中心」「遅番中心」など、体力や生活のリズムに合わせて、シフトも調整していきます。</p></div>
+    <div class="point"><span class="tag">帰り</span><h3>遅番でも23:00退勤</h3><p>閉店後の締め作業も含めて、23:00に退勤できるようにシフトを組んでいます。</p></div>
+    <div class="point"><span class="tag">残業代</span><h3>残業代は1分単位で全額支給</h3><p>みなし残業（固定残業代）のように、何時間働いても給与が変わらない、ということはありません。基本給（月給27万〜50万円）とは別に、残業した分は1分単位で全額支給します。「しっかり稼ぎたい」「プライベートを大事にしたい」など、生活に合わせて働き方を選べます。</p></div>
+    <p class="note">※シフトの一例です。時間は前後する場合があります。<br>※シフトは固定ではなく、日によって早番・遅番・ロング・通しを組み合わせます。<br>※休憩は、混み合う時間を避けて、時間をずらしたり分けて取ったりする場合があります。</p>
+    <div class="shift-cta">
+      <a class="cta" href="https://lin.ee/Yi1xHom" target="_blank" rel="noopener" data-apply data-from="shift">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5 1.1-.5 5.9-3.5 8-6C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8Z"/></svg>
+        シフトの希望をLINEで相談する
+      </a>
+      <p class="cta-note">「早番中心がいい」など、希望を送るだけで大丈夫です。</p>
     </div>
   </section>
 
@@ -490,7 +499,7 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     <ol class="sd-flow" id="sdFlow"></ol>
     <div class="sd-notes">
       <span>※1日の流れの一例です。時間は前後する場合があります。</span>
-      <span>※休憩は、お店の状況によって分割または短縮となる場合があります。</span>
+      <span>※休憩は、混み合う時間を避けて、時間をずらしたり分けて取ったりする場合があります。</span>
       <span>※22時以降の勤務は18歳以上の方のみです。</span>
     </div>
     <div class="sd-apply">
@@ -528,13 +537,13 @@ var UTM_CONTENT = "";  // どの広告から来たか（下で設定）
   try { if (window.clarity && c) clarity("set", "utm_content", c); } catch(e){}
 })();
 
-function trackApply(){
+function trackApply(from){
   // LINE応募ボタンのクリックを各広告・GA4に送る
   if (window.fbq) fbq('track', 'Lead');
   try { if (window.clarity) clarity('event', 'line_apply_click'); } catch(e){}
   if (window.gtag) {
     gtag('event', 'conversion', {'send_to': 'AW-18426767563/V-2tCKe3j4MdEMvRyNJE'});
-    gtag('event', 'generate_lead', {method: 'line'});
+    gtag('event', 'generate_lead', {method: 'line', location: from||'', ad: UTM_CONTENT||'direct'});
   }
 }
 function toast(msg){
@@ -544,7 +553,7 @@ function toast(msg){
 document.querySelectorAll('[data-apply]').forEach(function(a){
   if(LINE_URL){a.href=LINE_URL;a.target="_blank";a.rel="noopener";}
   a.addEventListener('click',function(e){
-    trackApply();
+    trackApply(a.getAttribute('data-from'));
     if(!LINE_URL){
       if(a.closest('#apply')){e.preventDefault();}
       toast('確認用ページのため、LINEにはまだつながりません');

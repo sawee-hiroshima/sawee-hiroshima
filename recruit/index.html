@@ -518,7 +518,20 @@ var LINE_ROUTES = {
   "wadai":     "https://lin.ee/84AjKqt", // Meta②話題性
   "video_new": "https://lin.ee/zEMaZyC", // Meta新規動画
   "short1":    "https://lin.ee/8mLgm62", // YouTubeショート
-  "story_video_new": "https://lin.ee/UfS9H4i" // Instagramストーリーズ（通常投稿）
+  "story_video_new": "https://lin.ee/UfS9H4i", // Instagramストーリーズ（通常投稿）
+  // 第4弾（2026-10 recruit_4th）
+  "exp4":      "https://lin.ee/8rP4QM6", // 4弾_meta_exp4（経験が活きる）
+  "life4":     "https://lin.ee/sYJu3JN", // 4弾_meta_life4（23時に帰れる）
+  "wadai4":    "https://lin.ee/ZiDlbHg", // 4弾_meta_wadai4（話題のお店）
+  "yt_exp4":   "https://lin.ee/ubbIwVT", // 4弾_youtube（YouTubeショートは3本とも同じ経路）
+  "yt_life4":  "https://lin.ee/ubbIwVT",
+  "yt_wadai4": "https://lin.ee/ubbIwVT"
+};
+// 広告ごとのファーストビュー見出し（広告の言葉とそろえる。yt_ はMetaと同じ見出し）
+var FV_COPY = {
+  "life4":  {h1: "遅番でも、<br><em>23時</em>には帰れる正社員です。"},
+  "wadai4": {h1: "話題のナッコプセ専門店で、<br><em>正社員</em>として働きませんか。",
+             lead: "新大久保で行列の人気店、中国地方1号店です。広島・袋町で正社員を募集しています。"}
 };
 var LINE_URL = "https://lin.ee/Yi1xHom";
 // 追加の応募窓口（公開前に必ず設定する。空のままだと「準備中」と表示）
@@ -534,6 +547,14 @@ var UTM_CONTENT = "";  // どの広告から来たか（下で設定）
   } catch(e){}
   UTM_CONTENT = c;
   if (LINE_ROUTES[c]) LINE_URL = LINE_ROUTES[c];
+  try {
+    var fv = FV_COPY[c.replace(/^yt_/, "")];
+    if (fv) {
+      var h1 = document.querySelector(".hero-text h1"), lead = document.querySelector(".hero-text .lead");
+      if (fv.h1 && h1) h1.innerHTML = fv.h1;
+      if (fv.lead && lead) lead.textContent = fv.lead;
+    }
+  } catch(e){}
   try { if (window.clarity && c) clarity("set", "utm_content", c); } catch(e){}
 })();
 

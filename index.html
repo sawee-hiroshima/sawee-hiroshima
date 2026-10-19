@@ -1029,8 +1029,8 @@
            onerror="this.style.display='none'">
 
       <div class="hero-buttons">
-        <!-- ▼ HOT PEPPER URL を変更してください -->
-        <a href="https://www.hotpepper.jp/" target="_blank" rel="noopener" class="btn-hp">
+        <!-- ▼ HOT PEPPER 店舗ページ（クリックはGA4イベント hpg_reserve_click で計測） -->
+        <a href="https://www.hotpepper.jp/strJ004613028/" target="_blank" rel="noopener" class="btn-hp" data-track="hpg" data-from="hero">
           <span class="btn-icon-hp">H</span>
           HOT PEPPERグルメで予約する
         </a>
@@ -1275,7 +1275,7 @@
       <h2 class="section-title">メニュー</h2>
       <div class="section-divider"></div>
 
-      <a href="https://www.instagram.com/sawee_hiroshima/" target="_blank" rel="noopener" class="menu-instagram-link">
+      <a href="https://www.instagram.com/sawee_hiroshima/" target="_blank" rel="noopener" class="menu-instagram-link" data-track="instagram" data-from="menu">
         📷 &nbsp;最新メニューは @sawee_hiroshima でもチェック
       </a>
 
@@ -1511,8 +1511,8 @@
             <div class="info-content">
               <p class="info-label">RESERVATION</p>
               <div class="info-reserve-btns">
-                <!-- ▼ URL を変更してください -->
-                <a href="https://www.hotpepper.jp/" target="_blank" rel="noopener" class="info-btn-hp">
+                <!-- ▼ HOT PEPPER 店舗ページ（クリックはGA4イベント hpg_reserve_click で計測） -->
+                <a href="https://www.hotpepper.jp/strJ004613028/" target="_blank" rel="noopener" class="info-btn-hp" data-track="hpg" data-from="info">
                   <span class="info-icon-hp">H</span>HOT PEPPER
                 </a>
               </div>
@@ -1551,7 +1551,7 @@
             <div class="info-content">
               <p class="info-label">PHONE</p>
               <p class="info-value">
-                <a href="tel:0822982110">082-298-2110</a>
+                <a href="tel:0822982110" data-track="tel" data-from="info">082-298-2110</a>
               </p>
             </div>
           </div>
@@ -1606,5 +1606,41 @@
     }, { passive: true });
   </script>
 
+
+  <!-- =============================================
+       予約導線の計測（GA4）
+       ・広告などのUTMパラメータを初回着地時に保存し、サイト内を移動しても保持
+       ・HOT PEPPER予約ボタン → hpg_reserve_click（GA4でキーイベントに設定）
+       ・電話 → tel_click ／ Instagram → instagram_click
+       ・各イベントに location（ボタン位置）と utm_source / utm_campaign / utm_content を付与
+       ・Meta Pixel にも HPGReserveClick / StoreTelClick / StoreInstagramClick（カスタムイベント）を送信
+       ============================================= -->
+  <script>
+  (function(){
+    var KEYS=['utm_source','utm_medium','utm_campaign','utm_content'];
+    var utm={};
+    try{
+      var q=new URLSearchParams(location.search);
+      if(q.get('utm_source')){
+        KEYS.forEach(function(k){ if(q.get(k)) utm[k]=q.get(k); });
+        sessionStorage.setItem('sawee_utm', JSON.stringify(utm));
+      }else{
+        utm=JSON.parse(sessionStorage.getItem('sawee_utm')||'{}');
+      }
+    }catch(e){}
+    var NAMES={hpg:'hpg_reserve_click', tel:'tel_click', instagram:'instagram_click'};
+    document.querySelectorAll('[data-track]').forEach(function(a){
+      a.addEventListener('click', function(){
+        var name=NAMES[a.getAttribute('data-track')]; if(!name) return;
+        var params={location:a.getAttribute('data-from')||'', link_url:a.href, transport_type:'beacon'};
+        KEYS.forEach(function(k){ params[k]=utm[k]||'(none)'; });
+        try{ if(window.gtag) gtag('event', name, params); }catch(e){}
+        // Meta Pixel：求人ページの Lead / Contact と混ざらないよう、店舗用はカスタムイベントで送る
+        var FB={hpg:'HPGReserveClick', tel:'StoreTelClick', instagram:'StoreInstagramClick'};
+        try{ if(window.fbq) fbq('trackCustom', FB[a.getAttribute('data-track')], {location:params.location, utm_campaign:params.utm_campaign, utm_content:params.utm_content}); }catch(e){}
+      });
+    });
+  })();
+  </script>
 </body>
 </html>

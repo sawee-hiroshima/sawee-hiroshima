@@ -104,8 +104,8 @@
     .nav-seal-img {
       height: 46px;
       width: auto;
-      opacity: 0.82;
-      filter: brightness(0) invert(1) drop-shadow(0 0 4px rgba(255,227,201,0.15));
+      opacity: 0.92;
+      border-radius: 50%;
       transition: opacity 0.25s;
     }
     .nav-seal-img:hover { opacity: 1; }
@@ -748,19 +748,22 @@
       min-height: 500px;
     }
     .kodawari-bg-img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
     .kodawari-bg-placeholder {
-      display: flex;
+      position: absolute;
+      inset: 0;
+      display: none;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       width: 100%;
       height: 100%;
-      min-height: 500px;
       background: #1a1a18;
       color: rgba(255,227,201,0.35);
       font-size: 14px;
@@ -825,13 +828,17 @@
         grid-template-columns: 1fr;
       }
       .kodawari-img-wrap {
-        min-height: 340px;
+        aspect-ratio: 16 / 10;
+        min-height: 0;
       }
       .kodawari-patent {
         width: 120px;
       }
     }
     @media (max-width: 600px) {
+      .kodawari-img-wrap {
+        aspect-ratio: 4 / 3;
+      }
       .kodawari-grid {
         grid-template-columns: 1fr;
       }
@@ -925,6 +932,22 @@
       .menu-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <!-- Google tag (gtag.js)：GA4 G-QQ7SGNLCLE ＋ Google広告 AW-18426767563 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QQ7SGNLCLE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QQ7SGNLCLE');
+    gtag('config', 'AW-18426767563');
+  </script>
+  <!-- Meta Pixel：サウィ食堂 広島店 1630717695057547 -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1630717695057547');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1630717695057547&ev=PageView&noscript=1"/></noscript>
 </head>
 <body>
 
@@ -935,7 +958,7 @@
     <!-- 左：シールロゴ ＋ 店名テキスト -->
     <a href="#home" class="nav-logo">
       <!-- ▼ 円形シールロゴ（左端） -->
-      <img src="images/logo-seal.png" alt="사위식당シールロゴ"
+      <img src="images/hero-seal.png" alt="사위식당シールロゴ"
            class="nav-seal-img"
            onerror="this.style.display='none'">
       サウィ食堂 広島店
@@ -947,6 +970,7 @@
       <li><a href="#about">サウィ食堂とは</a></li>
       <li><a href="#menu">メニュー</a></li>
       <li><a href="#info">アクセス</a></li>
+      <li><a href="recruit/">リクルート</a></li>
       <li><a href="#info" class="nav-cta">予約する</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false">
@@ -960,6 +984,7 @@
     <a href="#about"  onclick="closeNav()">ナッコプセ・サウィ食堂とは</a>
     <a href="#menu"   onclick="closeNav()">メニュー</a>
     <a href="#info"   onclick="closeNav()">アクセス・インフォメーション</a>
+    <a href="recruit/">リクルート（正社員募集）</a>
   </div>
 
 
@@ -1004,8 +1029,8 @@
            onerror="this.style.display='none'">
 
       <div class="hero-buttons">
-        <!-- ▼ HOT PEPPER URL を変更してください -->
-        <a href="https://www.hotpepper.jp/" target="_blank" rel="noopener" class="btn-hp">
+        <!-- ▼ HOT PEPPER 店舗ページ（クリックはGA4イベント hpg_reserve_click で計測） -->
+        <a href="https://www.hotpepper.jp/strJ004613028/" target="_blank" rel="noopener" class="btn-hp" data-track="hpg" data-from="hero">
           <span class="btn-icon-hp">H</span>
           HOT PEPPERグルメで予約する
         </a>
@@ -1062,6 +1087,18 @@
           <p class="media-date">2026年6月30日</p>
         </div>
 
+        <div class="media-card">
+          <p class="media-source">RCC「イマナマ！」</p>
+          <p class="media-title"><a href="https://iraw.rcc.jp/play/videos/640608" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">新店ラッシュ！中町エリアを知りたガール【街ネタ！知りたガール】でサウィ食堂が紹介されました</a></p>
+          <p class="media-date">2026年8月17日放送</p>
+        </div>
+
+        <div class="media-card">
+          <p class="media-source">広島ホームテレビ ピタニュー</p>
+          <p class="media-title"><a href="https://www.home-tv.co.jp/pitanew/backnumber/guguseto_165/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">【ググッと。瀬戸内】残暑を乗り切る、でサウィ食堂 広島店が紹介されました</a></p>
+          <p class="media-date">2026年9月4日放送</p>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1107,8 +1144,9 @@
           <div class="about-card-body">
             <h3 class="about-card-title">サウィ食堂とは</h3>
             <p class="about-card-text">
-              韓国で圧倒的人気を誇るナッコプセ専門店「サウィ食堂」が、ついに中国地方へ初上陸。<br><br>
-              本場ソウルの味をそのまま広島へ。厳選素材と代々受け継がれる秘伝のタレで、忘れられない一皿をご提供します。
+              韓国で圧倒的人気を誇るナッコプセ専門店「サウィ食堂」が、<br>
+              ついに中国地方へ初上陸。<br><br>
+              本場釜山の味をそのまま広島へ。厳選素材と代々受け継がれる秘伝のタレで、忘れられない一皿をご提供します。
             </p>
           </div>
         </div>
@@ -1181,7 +1219,7 @@
         <img src="images/kodawari-bg.jpg" alt="サウィ食堂 こだわり"
              class="kodawari-bg-img"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="kodawari-bg-placeholder">📸 画像をここに配置<br><small>images/kodawari-bg.jpg</small></div>
+        <div class="kodawari-bg-placeholder" style="display:none">📸 画像をここに配置<br><small>images/kodawari-bg.jpg</small></div>
         <img src="images/patent.jpg" alt="特許証"
              class="kodawari-patent"
              onerror="this.style.display='none'">
@@ -1237,7 +1275,7 @@
       <h2 class="section-title">メニュー</h2>
       <div class="section-divider"></div>
 
-      <a href="https://www.instagram.com/sawee_hiroshima/" target="_blank" rel="noopener" class="menu-instagram-link">
+      <a href="https://www.instagram.com/sawee_hiroshima/" target="_blank" rel="noopener" class="menu-instagram-link" data-track="instagram" data-from="menu">
         📷 &nbsp;最新メニューは @sawee_hiroshima でもチェック
       </a>
 
@@ -1473,8 +1511,8 @@
             <div class="info-content">
               <p class="info-label">RESERVATION</p>
               <div class="info-reserve-btns">
-                <!-- ▼ URL を変更してください -->
-                <a href="https://www.hotpepper.jp/" target="_blank" rel="noopener" class="info-btn-hp">
+                <!-- ▼ HOT PEPPER 店舗ページ（クリックはGA4イベント hpg_reserve_click で計測） -->
+                <a href="https://www.hotpepper.jp/strJ004613028/" target="_blank" rel="noopener" class="info-btn-hp" data-track="hpg" data-from="info">
                   <span class="info-icon-hp">H</span>HOT PEPPER
                 </a>
               </div>
@@ -1500,8 +1538,9 @@
             <div class="info-content">
               <p class="info-label">HOURS</p>
               <p class="info-value">
-                11:00 OPEN &nbsp;〜&nbsp; 22:00 CLOSE
-                <span class="info-hours-note">（Food L.O. 21:00 / Drink L.O. 21:30）</span>
+                土日祝　11:00〜22:00<br>
+                平日　11:00〜15:00 / 17:00〜22:00
+                <span class="info-hours-note">（Food L.O. 21:00 / Drink L.O. 21:30）<br>※90分制となります。</span>
               </p>
             </div>
           </div>
@@ -1512,7 +1551,7 @@
             <div class="info-content">
               <p class="info-label">PHONE</p>
               <p class="info-value">
-                <a href="tel:0822982110">082-298-2110</a>
+                <a href="tel:0822982110" data-track="tel" data-from="info">082-298-2110</a>
               </p>
             </div>
           </div>
@@ -1567,5 +1606,41 @@
     }, { passive: true });
   </script>
 
+
+  <!-- =============================================
+       予約導線の計測（GA4）
+       ・広告などのUTMパラメータを初回着地時に保存し、サイト内を移動しても保持
+       ・HOT PEPPER予約ボタン → hpg_reserve_click（GA4でキーイベントに設定）
+       ・電話 → tel_click ／ Instagram → instagram_click
+       ・各イベントに location（ボタン位置）と utm_source / utm_campaign / utm_content を付与
+       ・Meta Pixel にも HPGReserveClick / StoreTelClick / StoreInstagramClick（カスタムイベント）を送信
+       ============================================= -->
+  <script>
+  (function(){
+    var KEYS=['utm_source','utm_medium','utm_campaign','utm_content'];
+    var utm={};
+    try{
+      var q=new URLSearchParams(location.search);
+      if(q.get('utm_source')){
+        KEYS.forEach(function(k){ if(q.get(k)) utm[k]=q.get(k); });
+        sessionStorage.setItem('sawee_utm', JSON.stringify(utm));
+      }else{
+        utm=JSON.parse(sessionStorage.getItem('sawee_utm')||'{}');
+      }
+    }catch(e){}
+    var NAMES={hpg:'hpg_reserve_click', tel:'tel_click', instagram:'instagram_click'};
+    document.querySelectorAll('[data-track]').forEach(function(a){
+      a.addEventListener('click', function(){
+        var name=NAMES[a.getAttribute('data-track')]; if(!name) return;
+        var params={location:a.getAttribute('data-from')||'', link_url:a.href, transport_type:'beacon'};
+        KEYS.forEach(function(k){ params[k]=utm[k]||'(none)'; });
+        try{ if(window.gtag) gtag('event', name, params); }catch(e){}
+        // Meta Pixel：求人ページの Lead / Contact と混ざらないよう、店舗用はカスタムイベントで送る
+        var FB={hpg:'HPGReserveClick', tel:'StoreTelClick', instagram:'StoreInstagramClick'};
+        try{ if(window.fbq) fbq('trackCustom', FB[a.getAttribute('data-track')], {location:params.location, utm_campaign:params.utm_campaign, utm_content:params.utm_content}); }catch(e){}
+      });
+    });
+  })();
+  </script>
 </body>
 </html>

@@ -403,6 +403,36 @@
       font-size: 12px;
       color: rgba(255,227,201,0.35);
     }
+    .media-hint { display: none; }
+    /* スマホ：新しい順の横スクロール（カルーセル）にして縦の長さを抑える */
+    @media (max-width: 600px) {
+      .media-grid {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        margin: 0 -16px;
+        padding: 4px 16px 8px;
+        scroll-padding: 0 16px;
+      }
+      .media-grid::-webkit-scrollbar { display: none; }
+      .media-card {
+        flex: 0 0 80%;
+        scroll-snap-align: start;
+        padding: 22px 20px;
+        order: var(--o, 0); /* JSで新しい順に並べ替え */
+      }
+      .media-card:hover { transform: none; }
+      .media-hint {
+        display: block;
+        font-size: 12px;
+        color: rgba(255,227,201,0.45);
+        margin-bottom: 12px;
+        text-align: right;
+      }
+    }
 
     /* ===== ABOUT ===== */
     .about-grid {
@@ -637,6 +667,128 @@
       font-size: 12px;
       color: rgba(255,227,201,0.5);
       line-height: 1.75;
+    }
+
+    /* ===== NEW MENU ===== */
+    .newmenu-block { margin-bottom: 56px; }
+    .newmenu-heading {
+      display: flex; align-items: baseline; gap: 12px;
+      font-size: 18px; font-weight: 700;
+      color: var(--peach);
+      margin-bottom: 20px;
+    }
+    .newmenu-heading span {
+      font-size: 12px;
+      color: var(--red);
+      letter-spacing: 0.2em;
+    }
+    .newmenu-list {
+      display: grid;
+      gap: 24px;
+    }
+    .newmenu-card {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 32px;
+      align-items: center;
+      background: rgba(255,227,201,0.03);
+      border: 1px solid rgba(255,227,201,0.08);
+      border-radius: 14px;
+      padding: 24px;
+    }
+    .newmenu-img img {
+      width: 100%; height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+    .newmenu-badge {
+      display: inline-block;
+      background: var(--red);
+      color: var(--white);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.15em;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+    .newmenu-name {
+      font-size: 22px; font-weight: 700;
+      color: var(--peach);
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+    .newmenu-korean {
+      font-size: 12px;
+      color: rgba(255,227,201,0.4);
+      letter-spacing: 0.05em;
+      margin-bottom: 14px;
+    }
+    .newmenu-lead {
+      font-size: 14px;
+      color: rgba(255,227,201,0.8);
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .newmenu-prices {
+      list-style: none;
+      margin: 0 0 12px;
+      padding: 0;
+      border-top: 1px solid rgba(255,227,201,0.1);
+    }
+    .newmenu-prices li {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 9px 0;
+      font-size: 14px;
+      color: var(--white);
+      border-bottom: 1px solid rgba(255,227,201,0.1);
+    }
+    .newmenu-prices li span:last-child {
+      font-weight: 700;
+      color: var(--peach);
+      white-space: nowrap;
+    }
+    .newmenu-prices .is-new span:first-child::after {
+      content: "NEW";
+      margin-left: 8px;
+      font-size: 10px; font-weight: 700;
+      color: var(--red);
+      letter-spacing: 0.1em;
+    }
+    .newmenu-note {
+      font-size: 12px;
+      color: rgba(255,227,201,0.55);
+      line-height: 1.75;
+    }
+    @media (max-width: 760px) {
+      .newmenu-card {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 16px 16px 22px;
+      }
+      .newmenu-img { max-width: 420px; margin: 0 auto; width: 100%; }
+      .newmenu-name { font-size: 19px; }
+    }
+    /* スマホ：横スワイプ（カルーセル） */
+    @media (max-width: 600px) {
+      .newmenu-list {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        margin: 0 -16px;
+        padding: 4px 16px 8px;
+        scroll-padding: 0 16px;
+      }
+      .newmenu-list::-webkit-scrollbar { display: none; }
+      .newmenu-card {
+        flex: 0 0 85%;
+        scroll-snap-align: start;
+        align-content: start;
+      }
     }
 
     /* ===== INFO ===== */
@@ -1060,6 +1212,7 @@
       <p class="section-label">MEDIA</p>
       <h2 class="section-title">メディアでの紹介</h2>
       <div class="section-divider"></div>
+      <p class="media-hint">新しい順に表示中｜横にスワイプで過去の掲載 →</p>
       <div class="media-grid">
 
         <div class="media-card">
@@ -1125,6 +1278,13 @@
       </div>
     </div>
   </section>
+  <script>
+    /* スマホのカルーセルだけ新しい順に表示（PCは古い順のまま） */
+    (function () {
+      var cards = document.querySelectorAll('#media .media-card');
+      cards.forEach(function (c, i) { c.style.setProperty('--o', cards.length - i); });
+    })();
+  </script>
 
 
   <!-- =============================================
@@ -1302,6 +1462,54 @@
         📷 &nbsp;最新メニューは @sawee_hiroshima でもチェック
       </a>
 
+      <!-- ===== NEW MENU（新メニューのお知らせ）=====
+           新しいお知らせは <div class="newmenu-card">...</div> をコピーして一番上に追加 -->
+      <div class="newmenu-block" id="newmenu">
+        <p class="newmenu-heading"><span>NEW MENU</span>新メニューのお知らせ</p>
+        <p class="media-hint">横にスワイプで次の新メニュー →</p>
+        <div class="newmenu-list">
+
+          <!-- ▼ ポッサム小サイズ -->
+          <div class="newmenu-card">
+            <div class="newmenu-img">
+              <img src="images/new-bossam-small.jpg" alt="ポッサム小サイズ登場" loading="lazy" width="800" height="1000">
+            </div>
+            <div class="newmenu-body">
+              <span class="newmenu-badge">NEW SIZE</span>
+              <h3 class="newmenu-name">ポッサム 小サイズ</h3>
+              <p class="newmenu-korean">보쌈</p>
+              <p class="newmenu-lead">1人前の小サイズ（2,838円）が登場しました！</p>
+              <ul class="newmenu-prices">
+                <li class="is-new"><span>小</span><span>2,838円</span></li>
+                <li><span>中</span><span>3,938円</span></li>
+                <li><span>大</span><span>4,950円</span></li>
+              </ul>
+              <p class="newmenu-note">※価格は税込です。<br>※小サイズは鍋をご注文のお客様限定です。ポッサムのみのご注文は中サイズからお願いいたします。</p>
+            </div>
+          </div>
+
+          <!-- ▼ 美酢（ミチョ）ドリンク -->
+          <div class="newmenu-card">
+            <div class="newmenu-img">
+              <img src="images/new-michoh.jpg" alt="韓国で大人気の美酢（ミチョ）ドリンク 全7種類のフレーバー" loading="lazy" width="750" height="1000">
+            </div>
+            <div class="newmenu-body">
+              <span class="newmenu-badge">NEW</span>
+              <h3 class="newmenu-name">美酢（ミチョ）ドリンク</h3>
+              <p class="newmenu-korean">미초</p>
+              <p class="newmenu-lead">韓国で大人気のフルーツのお酢「美酢」のドリンクが登場。フレーバーは全7種類からお選びいただけます。</p>
+              <ul class="newmenu-prices">
+                <li><span>美酢サワー</span><span>480円</span></li>
+                <li><span>美酢マッコリ</span><span>580円</span></li>
+                <li><span>美酢 水割り or 炭酸割り（ソフトドリンク）</span><span>330円</span></li>
+              </ul>
+              <p class="newmenu-note">フレーバー：もも・アサイー・マスカット・グレープフルーツ・キウイ・りんご・ザクロ<br>※価格は税込です。</p>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /newmenu-block -->
+
       <div class="menu-grid">
 
         <!-- ▼ #1 ナッコプセ -->
@@ -1331,7 +1539,7 @@
           <div class="menu-card-body">
             <p class="menu-card-num">#2</p>
             <p class="menu-card-name">ポッサム</p>
-            <p class="menu-card-korean">포섬</p>
+            <p class="menu-card-korean">보쌈</p>
             <p class="menu-card-desc">丁寧に蒸し上げた豚肉を野菜で包んで食べる、ヘルシーな韓国式蒸し豚。</p>
           </div>
         </div>
